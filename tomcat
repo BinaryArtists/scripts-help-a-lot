@@ -1,0 +1,39 @@
+#!/bin/bash
+
+########
+# command start
+#######
+case $1 in
+start)
+echo "Tomcat is starting..."
+sh /Library/Tomcat/bin/startup.sh
+;;
+
+########
+# command stop
+########
+stop)
+echo "Tomcat is stopping..."
+sh /Library/Tomcat/bin/shutdown.sh
+;;
+
+########
+# command restart
+########
+restart)
+echo "Tomcat is starting..."
+sh /Library/Tomcat/bin/shutdown.sh
+echo "Tomcat is stopping..."
+sh /Library/Tomcat/bin/startup.sh
+;;
+
+########
+# default
+########
+*)
+echo “Usage: start, stop, restart”
+;;
+
+esac # case end
+
+exit 0
