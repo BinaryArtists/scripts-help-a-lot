@@ -28,10 +28,18 @@ sh /Library/Tomcat/bin/startup.sh
 ;;
 
 ########
+# open tomcat dir
+########
+dir)
+echo "Opening tomcat directory..."
+open /Library/Tomcat/webapps
+;;
+
+########
 # default
 ########
 *)
-echo “Usage: start, stop, restart”
+echo “Usage: start, stop, restart, dir”
 ;;
 
 esac # case end
