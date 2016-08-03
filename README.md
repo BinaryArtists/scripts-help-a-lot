@@ -38,10 +38,22 @@ scripts i used when developing ios stuff...
     5. https://github.com/juxingzhutou/iOS-Build-Scripts/blob/master/build.sh
     6. 持续集成：https://github.com/iOSeros/BuildScripts
 
+    7. [Jenkins+GitHub+fir_cli 一行命令从源码到fir.im](http://www.jianshu.com/p/0515e2465c49)
+
 ### 自动检查证书和配置文件的匹配性
     1. https://github.com/quadion/iOSValidation
 
 ### 脸书出品：https://github.com/facebook/xctool
+
+    1. 参考[使用fastlane gym/xctool编写ipa打包脚本](http://www.jianshu.com/p/54ab07f2e63b)，使用xctool、gym编译iOS工程：
+        > 简书讲两个脚本更新在：https://github.com/xilin/ios-build-script
+        > gym：https://github.com/fastlane/fastlane
+        > xctool：https://github.com/facebook/xctool
+        > fir：https://github.com/FIRHQ/fir-cli
+
+    2. 持续集成
+
+        *TODO*
 
 ### check-signature，脚本
 
