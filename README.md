@@ -9,6 +9,7 @@ scripts i used when developing ios stuff...
 
 ### 脚本自动生成小尺寸的图片
     1. http://blog.devtang.com/2012/08/26/use-script-to-power-up-ui-work/
+        > brew link jpeg, brew install imagemagick
     2. 同时推荐了：http://www.xnview.com/en/xnconvert/
 
 ### app icon 生成
