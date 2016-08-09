@@ -61,5 +61,25 @@ scripts i used when developing ios stuff...
 
 ### imagemagick 强大的图像处理库
 
-安装：
+安装 imagemagick：
 brew install imagemagick
+
+[安装 bew](http://webmedia.blog.163.com/blog/static/416695020123261226695/)
+```
+cd /usr/local
+sudo mkdir homebrew
+curl -L https://github.com/mxcl/homebrew/tarball/master | sudo tar xz --strip 1 -C homebrew
+cd homebrew/bin
+./brew -v
+file brew
+cat brew | moresudo ./brew update
+
+...
+
+如果~下没有文件".bash_profile" 请执行： touch '.bash_profile'
+
+...
+
+vim '.bash_profile'加入
+export PATH=$PATH:/usr/local/homebrew/bin
+```
