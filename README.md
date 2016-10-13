@@ -49,12 +49,13 @@ scripts i used when developing ios stuff...
     1. 参考[使用fastlane gym/xctool编写ipa打包脚本](http://www.jianshu.com/p/54ab07f2e63b)，使用xctool、gym编译iOS工程：
         > 简书讲两个脚本更新在：https://github.com/xilin/ios-build-script
         > gym：https://github.com/fastlane/fastlane
+          > 1.How to set project path? GYM_PROJECT enviromental variable
         > xctool：https://github.com/facebook/xctool
         > fir：https://github.com/FIRHQ/fir-cli
 
     2. 持续集成
 
-        *TODO*
+        [使用fastlane实现iOS持续集成](http://blog.csdn.net/azhou_hui/article/details/51244667)
 
 ### check-signature，脚本
 
