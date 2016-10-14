@@ -41,6 +41,11 @@ scripts i used when developing ios stuff...
 
     7. [Jenkins+GitHub+fir_cli 一行命令从源码到fir.im](http://www.jianshu.com/p/0515e2465c49)
 
+### 编译脚本 之 [nomad/shenzhen](https://github.com/nomad/shenzhen)
+
+  * 血泪史
+    1. gem install nokogiri的时候出错：参考[installing_nokogiri](http://www.nokogiri.org/tutorials/installing_nokogiri.html)
+
 ### 自动检查证书和配置文件的匹配性
     1. https://github.com/quadion/iOSValidation
 
@@ -84,3 +89,36 @@ cat brew | moresudo ./brew update
 vim '.bash_profile'加入
 export PATH=$PATH:/usr/local/homebrew/bin
 ```
+
+### [清理 iOS 项目不用的图片资源](http://www.cocoachina.com/ios/20160531/16536.html)
+
+  1. 图片调用方法：1. [UIImage imageNamed:@"image"], 2. <imageview image="image" id="rb9-sl-eqm"></imageview image="image" id="rb9-sl-eqm">, 3. 用法较少，就是名称中有固定编码的，比如"320x480"/"1080x720"，然后根据屏幕适配；又比如"-1"/"-2",数组方式使用的。
+
+  [https://github.com/jjz/script/blob/master/un_used.py](https://github.com/jjz/script/blob/master/un_used.py)
+
+  2. 该仓库下还可以使用：unused-image.sh, 使用方法：
+  This shell script is used to check and clean unused image file in your project  directory，supoort Android and IOS.
+  * show unused image file
+      ```
+      ./unused-image.sh -p /path/of/your/project
+      ```
+  * show and clean unused image file
+      ```
+      ./unused-image.sh -r -p /path/of/your/project
+      ```
+
+### 搜索文件
+
+搜索文件的方式可以使用grep,ack都是不错的工具，但是有一种更快，更好的搜索文件内容的方式:The Silver Searcher，项目地址：https://github.com/ggreer/the_silver_searcher，The Silver Searcher使用方便，更快，更简单。
+
+安装The Silver Searcher:
+```
+brew install the_silver_searcher
+```
+
+使用ag搜索, 搜索该目录下以及其子目录下的所有包括image的文件:
+```
+ag “image” ‘./’
+```
+
+###
