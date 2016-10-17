@@ -43,8 +43,12 @@ scripts i used when developing ios stuff...
 
 ### 编译脚本 之 [nomad/shenzhen](https://github.com/nomad/shenzhen)
 
+  * 可参考：[iOS持续部署平台（一）：SHENZHEN](http://blog.csdn.net/ljj_saver/article/details/47009723)
+
   * 血泪史
     1. gem install nokogiri的时候出错：参考[installing_nokogiri](http://www.nokogiri.org/tutorials/installing_nokogiri.html)
+
+  * ipa build 执行的时候，因为各种参数，它依赖xcode配置，所以在project-schemaname-configurations-use xxx for command-line builds，这里对xxx的配置，决定了编译什么版本～
 
 ### 自动检查证书和配置文件的匹配性
     1. https://github.com/quadion/iOSValidation
@@ -58,9 +62,13 @@ scripts i used when developing ios stuff...
         > xctool：https://github.com/facebook/xctool
         > fir：https://github.com/FIRHQ/fir-cli
 
+        mark 一下，xcode 8下，貌似有点问题。。。暂时放在这里。
+
     2. 持续集成
 
         [使用fastlane实现iOS持续集成](http://blog.csdn.net/azhou_hui/article/details/51244667)
+
+        mark 一下，xcode 8下，貌似有点问题。。。暂时放在这里。
 
 ### check-signature，脚本
 
