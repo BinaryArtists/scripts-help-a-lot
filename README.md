@@ -62,7 +62,7 @@ scripts i used when developing ios stuff...
         > xctool：https://github.com/facebook/xctool
         > fir：https://github.com/FIRHQ/fir-cli
 
-        mark 一下，xcode 8下，貌似有点问题。。。暂时放在这里。
+        mark 一下，xcode 8下，貌似有点问题。。。暂时放在这里。 
 
     2. 持续集成
 
