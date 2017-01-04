@@ -1,0 +1,45 @@
+#!/bin/bash
+
+########
+# command start
+#######
+case $1 in
+start)
+echo "Apache is starting..."
+sudo apachectl start
+;;
+
+########
+# command stop
+########
+stop)
+echo "Apache is stopping..."
+sudo apachectl stop
+;;
+
+########
+# command restart
+########
+restart)
+echo "Apache is restarting..."
+sudo apachectl restart
+;;
+
+########
+# open apache dir
+########
+dir)
+echo "Opening tomcat directory..."
+open /etc/apache2
+;;
+
+########
+# default
+########
+*)
+echo “Usage: start, stop, restart, dir, <password> is ur root code.”
+;;
+
+esac # case end
+
+exit 0
