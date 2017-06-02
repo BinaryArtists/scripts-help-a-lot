@@ -1,5 +1,9 @@
 ## script-ios
+
 scripts i used when developing ios stuff...
+
+以下链接需要处理：
+1. [一条命令 快速配置 Xcode 各种 环境](https://my.oschina.net/u/727843/blog/731322)
 
 ### PNG压缩
     1. https://imageoptim.com/howto.html
@@ -62,7 +66,7 @@ scripts i used when developing ios stuff...
         > xctool：https://github.com/facebook/xctool
         > fir：https://github.com/FIRHQ/fir-cli
 
-        mark 一下，xcode 8下，貌似有点问题。。。暂时放在这里。 
+        mark 一下，xcode 8下，貌似有点问题。。。暂时放在这里。
 
     2. 持续集成
 
@@ -129,4 +133,6 @@ brew install the_silver_searcher
 ag “image” ‘./’
 ```
 
-###
+### plist cli编辑工具：PlistBuddy
+
+[PlistBuddy](http://blog.csdn.net/a351945755/article/details/46561249)
