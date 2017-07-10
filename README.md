@@ -136,3 +136,7 @@ ag “image” ‘./’
 ### plist cli编辑工具：PlistBuddy
 
 [PlistBuddy](http://blog.csdn.net/a351945755/article/details/46561249)
+
+### 网速模拟工具
+
+[Hardware IO Tools for Xcode, Network Linker Conditioner](http://www.cnblogs.com/qiyer/p/5363983.html), Xcode - Open Develop Tools - More Tools ^_^
