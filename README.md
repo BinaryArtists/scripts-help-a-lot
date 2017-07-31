@@ -1,6 +1,6 @@
 ## script-ios
 
-scripts i used when developing ios stuff...
+专门下脚本的网站：https://writer.bighugelabs.com/share/3kdu8i57
 
 以下链接需要处理：
 1. [一条命令 快速配置 Xcode 各种 环境](https://my.oschina.net/u/727843/blog/731322)
