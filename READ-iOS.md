@@ -75,7 +75,9 @@
 ### check-signature，脚本
 
 
-### imagemagick 强大的图像处理库
+### [imagemagick 强大的图像处理库]()
+
+[使用说明](http://www.charry.org/docs/linux/ImageMagick/ImageMagick.html)
 
 安装 imagemagick：
 brew install imagemagick
@@ -138,3 +140,19 @@ ag “image” ‘./’
 ### 网速模拟工具
 
 [Hardware IO Tools for Xcode, Network Linker Conditioner](http://www.cnblogs.com/qiyer/p/5363983.html), Xcode - Open Develop Tools - More Tools ^_^
+
+### icns图标 <---> XXXX.iconset文件夹
+
+[官方文档](https://developer.apple.com/library/content/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Optimizing/Optimizing.html#//apple_ref/doc/uid/TP40012302-CH7-SW8)
+
+将 文件夹名为XXXX.iconset的文件夹(包含若干个png图片) 打包成XXXX.icns文件：[使用这个命令， 我遇到 'Iconset contains no image resources.'，这个文章提到](https://blog.macsales.com/28492-create-your-own-custom-icons-in-10-7-5-or-later)
+```
+To convert a set of icons to an icns file:
+iconutil -c icns <iconset filename>
+```
+
+将XXX.icns文件 转成 包含若干个png图片的文件夹：
+```
+To convert an icns file to a set of icons:
+iconutil -c iconset <icns filename>
+```
