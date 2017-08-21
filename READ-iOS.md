@@ -156,3 +156,48 @@ iconutil -c icns <iconset filename>
 To convert an icns file to a set of icons:
 iconutil -c iconset <icns filename>
 ```
+
+## [OCLint 静态代码分析工具](用OCLint给iOS代码做静态分析)
+
+0. 需求
+
+主要针对c,c++和Objective-c的静态分析
+
+1. 安装
+
+[OCLint](http://oclint.org/%E3%80%82)
+
+2. Homebrew安装
+
+安装第三方依赖
+```
+brew tap oclint/formulae
+```
+安装OCLint
+```
+brew install oclint
+```
+更新OCLint
+```
+brew update
+brew upgrade oclint
+```
+
+### XCode日志分析
+
+xcpretty命令分析日志信息, xcpretty是用来格式化xcodebuild输出的工具，使用ruby开发
+
+1. 安装
+
+[xcpretty](https://github.com/supermarin/xcpretty)
+
+```
+gem install xcpretty
+```
+
+### xctool 使用 OCLint ,配合jenkins 生成PMD 报告脚本
+
+
+
+
+

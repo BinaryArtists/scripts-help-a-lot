@@ -1,4 +1,4 @@
-# 只不过下面都是围绕着1x，2x，现在主要是2x，3x
+# 脚本使用
 
 ## 脚本自动生成小尺寸的图片
 tq-convert-image.sh src_dir dst_dir
