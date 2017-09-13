@@ -8,3 +8,9 @@ tq-check-image-size.sh dir
 
 ## 删除未使用的图片资源, 先运行：brew install ack
 tq-rm-unused-images.sh
+
+## 使用appledoc 生成技术API文档
+
+[iOS使用appledoc 生成技术API文档详解](http://www.jianshu.com/p/65f1afdb9445)
+
+ios-api-doc-gen.sh
