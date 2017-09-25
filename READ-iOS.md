@@ -141,7 +141,7 @@ ag “image” ‘./’
 
 [Hardware IO Tools for Xcode, Network Linker Conditioner](http://www.cnblogs.com/qiyer/p/5363983.html), Xcode - Open Develop Tools - More Tools ^_^
 
-### icns图标 <---> XXXX.iconset文件夹
+### icons图标 <---> XXXX.iconset文件夹
 
 [官方文档](https://developer.apple.com/library/content/documentation/GraphicsAnimation/Conceptual/HighResolutionOSX/Optimizing/Optimizing.html#//apple_ref/doc/uid/TP40012302-CH7-SW8)
 
