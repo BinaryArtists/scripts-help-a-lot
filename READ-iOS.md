@@ -34,14 +34,7 @@
     1. https://github.com/danielpovlsen/ios-icons-launch-images-generator
 
 ### 编译脚本：（用于持续集成）
-    1. https://github.com/splinesoft/SSBuild
-    2. https://github.com/spritefly/ios-builder
-    3. https://github.com/jtribe/ios-tools
-    4. https://github.com/DavidBenko/iOS-Enterprise-Build-Script
-    5. https://github.com/juxingzhutou/iOS-Build-Scripts/blob/master/build.sh
-    6. 持续集成：https://github.com/iOSeros/BuildScripts
-
-    7. [Jenkins+GitHub+fir_cli 一行命令从源码到fir.im](http://www.jianshu.com/p/0515e2465c49)
+    1. [Jenkins+GitHub+fir_cli 一行命令从源码到fir.im](http://www.jianshu.com/p/0515e2465c49)
 
 ### 编译脚本 之 [nomad/shenzhen](https://github.com/nomad/shenzhen)
 
@@ -72,8 +65,9 @@
 
         mark 一下，xcode 8下，貌似有点问题。。。暂时放在这里。
 
-### check-signature，脚本
+### 编译脚本 之 
 
+### check-signature，脚本
 
 ### [imagemagick 强大的图像处理库]()
 
