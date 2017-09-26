@@ -4,8 +4,11 @@ https://segmentfault.com/a/1190000006036548?from=timeline&isappinstalled=0
 
 http://www.jianshu.com/p/9ae446d76271
 http://www.jianshu.com/p/bc6733d9bfaf
+http://www.jianshu.com/p/23646d85cfa1
 
 http://blog.csdn.net/cuiaamay/article/details/50456446
+
+https://github.com/leverdeterre/xctool-log2junit
 
 ## 每日构建
 
