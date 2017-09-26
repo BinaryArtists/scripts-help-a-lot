@@ -7,6 +7,12 @@
 ### 安装 xctool
 
 ```
+brew install xctool
+```
+
+### 使用 xctool
+
+```
 xctool -workspace NewStructure.xcworkspace -scheme NewStructureTest run-tests -sdk iphonesimulator
 ```
 
