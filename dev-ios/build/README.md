@@ -41,8 +41,13 @@ brew install cmake ninja
 4. 还没有测试OK！！！
 
 
-### 构建命令 之 gym
+### 构建命令 之 [gym](https://github.com/fastlane/fastlane)
 
+安装
+
+```
+brew cask install fastlane
+```
 
 ### 构建命令 之 xcodebuild
 
