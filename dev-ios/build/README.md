@@ -22,12 +22,25 @@ xcodebuild 是苹果提供的打包项目或者工程的命令:
 
 ### 构建命令 之 xcbuild
 
+*如果对编译速度有较高要求，可以参考使用xcbuild*
+
 
 ### 构建命令 之 gym
 
 
 ### 构建命令 之 xcodebuild
 
+*直观的输出，搭配xcpretty*
+
+安装 [xcpretty](https://github.com/supermarin/xcpretty)
+```
+sudo gem install xcpretty
+```
+
+使用例子
+```
+xcodebuild [flags] | xcpretty
+```
 
 ## 上传
 

@@ -192,6 +192,50 @@ gem install xcpretty
 ### xctool 使用 OCLint ,配合jenkins 生成PMD 报告脚本
 
 
+### 替换图标的示例脚本：
 
+```
+#! /bin/bash
+# created by Ficow Shen
 
+useDebugIcon(){
 
+    rm -rf 项目根目录/Images.xcassets/AppIcon.appiconset || exit
+    cp -r AutoPack/IconOfDebug/AppIcon.appiconset/ 项目根目录/Images.xcassets/AppIcon.appiconset || exit
+
+    echo '* 已更改AppIcon 为：测试版 图标'
+}
+useReleaseIcon(){
+    
+    rm -rf 项目根目录/Images.xcassets/AppIcon.appiconset || exit
+    cp -r AutoPack/IconOfRelease/AppIcon.appiconset/ 项目根目录/Images.xcassets/AppIcon.appiconset || exit
+    
+    echo '* 已更改AppIcon 为：正式版 图标'
+}
+
+echo 'changeAppIcon.sh 加载完毕！'
+```
+
+### 替换BundleID的示例脚本：
+
+```
+#! /bin/bash
+# created by Ficow Shen
+
+useDebugBundleID(){
+    cd 项目根目录.xcodeproj/
+    # sed -i 直接修改源文件，'' 备份文件名, 's/要被取代的字串/新的字串/g', 需要设置bundleID的文件
+    # 假设com.a.a是测试环境使用的，com.b.b是正式环境使用的
+    sed -i '' 's/com.a.a/com.b.b/g' project.pbxproj || exit
+    cd ..
+    echo '* 已更改bundle ID 为：com.b.b'
+}
+useReleaseBundleID(){
+    cd 项目根目录.xcodeproj/
+    sed -i '' 's/com.b.b/com.a.a/g' project.pbxproj || exit
+    cd ..
+    echo '* 已更改bundle ID 为：com.a.a'
+}
+
+echo 'editBundleID.sh 加载完毕！'
+```

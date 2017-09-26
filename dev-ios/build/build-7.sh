@@ -1,9 +1,8 @@
-#!/bin/sh
+#!/bin/bash
 
-#  build.sh
-#
-#  Created by juxingzhutou on 15/12/18.
-#  Copyright (c) 2015年 bluntsword. All rights reserved.
+###############################################
+# iOS 7 及以前
+###############################################
 
 #############################
 #
