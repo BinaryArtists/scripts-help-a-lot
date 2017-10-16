@@ -23,7 +23,6 @@ xctool -help
 ```
 
 ```
-
 Reporters
 
 	- pretty: (default) a text-based reporter that uses ANSI colors and unicode symbols for pretty output.
@@ -32,6 +31,12 @@ Reporters
 	- junit: produces a JUnit/xUnit compatible XML file with test results.
 	- json-stream: a stream of build/test events as JSON dictionaries, one per line (example output).
 	- json-compilation-database: outputs a JSON Compilation Database of build events which can be used by Clang Tooling based tools, e.g. OCLint.
+  
+```
+
+保证所有scheme是共享的
+```
+Open your workspace and go to Product -> Scheme -> Manage Schemes... -> ensure "Shared" is checked in front of your scheme.
 ```
 
 ### 测试 xctool
