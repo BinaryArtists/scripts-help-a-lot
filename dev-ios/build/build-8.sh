@@ -54,4 +54,5 @@ if [ -e $exportFilePath/$scheme_name.ipa ]; then
 else
     echo "*** 创建.ipa文件失败 ***"
 fi
+
 echo '*** 打包完成 ***'
