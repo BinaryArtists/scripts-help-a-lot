@@ -14,3 +14,10 @@ tq-rm-unused-images.sh
 [iOS使用appledoc 生成技术API文档详解](http://www.jianshu.com/p/65f1afdb9445)
 
 ios-api-doc-gen.sh
+
+* [error: unable to find utility "docsetutil"]()
+* Github: [tomaz/appledoc](https://github.com/tomaz/appledoc)
+
+## [Dash](https://kapeli.com/dash)
+
+a document viewer that includes a ton of docsets for popular languages, platforms, and frameworks. It looks great so far, and has Emacs integration too.
