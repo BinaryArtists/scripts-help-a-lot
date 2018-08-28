@@ -1,0 +1,144 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset134 PingFangSC-Regular;\f2\fnil\fcharset0 Menlo-Regular;
+}
+{\colortbl;\red255\green255\blue255;\red85\green142\blue40;\red0\green0\blue0;\red255\green255\blue255;
+\red0\green68\blue254;}
+{\*\expandedcolortbl;;\csgenericrgb\c33333\c55686\c15686;\csgray\c0;\csgray\c100000;
+\csgenericrgb\c0\c26667\c99608;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+
+\f0\fs36 \cf0 ## 
+\f1 \'b3\'a3\'d3\'c3\'c3\'fc\'c1\'ee
+\f0\fs24 \
+\
+
+\fs28 1. 
+\f1 \'b0\'b2\'d7\'b0\'cd\'eanode
+\f0 js
+\f1 \'ba\'f3\'a3\'ac\'c8\'ab\'be\'d6\'b0\'b2\'d7\'b0webpack\
+
+\f2 \cf2 npm install webpack -g
+\f1 \cf0 \
+\
+2. \'ca\'b5\'bc\'ca\'bf\'aa\'b7\'a2\'d6\'d0\'bb\'b9\'d0\'e8\'d2\'aa\'d5\'eb\'b6\'d4\'b5\'a5\'b8\'f6\'cf\'ee\'c4\'bf\'bd\'f8\'d0\'d0webpack\'b0\'b2\'d7\'b0\
+
+\f2 \cf2 npm install webpack \'97save-dev
+\f0 \cf0 \
+
+\fs24 \
+3. 
+\f1 \'b0\'b2\'d7\'b0
+\f0 webpack-dev-server
+\f1 \'a3\'ac\'c8\'c3\'cf\'ee\'c4\'bf\'cf\'f1nginx\'c4\'c7\'d1\'f9\'b5\'c4web\'b7\'fe\'ce\'f1\'c6\'f7\'c5\'dc\'c6\'f0\'c0\'b4
+\f0 \
+npm install webpack-dev-server \'97save-dev\
+\
+\
+\
+\
+
+\fs36 ## 
+\f2 \cf3 \cb4 \CocoaLigature0 package.json
+\fs22 \
+\
+npm init 
+\f1 \'bf\'c9\'d2\'d4\'d7\'d4\'b6\'af\'c9\'fa\'b3\'c9
+\f2  package.json\
+\
+\
+"config": \{\
+	"port": "3030"\
+\},\
+\
+"scripts": \{\
+	"test": "echo \\"Error: no test specified\\" && exit 1",\
+	"build": "webpack",  \
+	"dev": "webpack-dev-server --devtool eval --progress --colors --content-base build"  \
+\}  \
+\
+\
+"devDependencies": \{\
+    "babel-core": "^6.26.0",\
+    "babel-loader": "^6.4.1",\
+    "babel-preset-es2015": "^6.24.1",\
+    "babel-preset-react": "^6.3.13",\
+    "file-loader": "^1.1.5",\
+    "less": "^2.7.3",\
+    "less-loader": "^4.0.5",\
+    "url-loader": "^0.6.2",\
+    "webpack": "^1.15.0",\
+    "webpack-dev-server": "^2.9.7"\
+\},\
+\
+"dependencies": \{\
+	"react": "^0.14.7",\
+	"react-dom": "^0.14.7",\
+	"three": "^0.88.0"\
+\}\
+\
+\
+
+\fs36 ## webpack.config.js
+\fs22 \
+\
+/**\
+ * Created by xxx on xxxx/xx/xx.\
+ */\
+
+\fs28 \cf2 var path = require('path');\
+var webpack = require('webpack');\
+module.exports = \{\
+\cf5 	// 
+\f1 \'d6\'b8\'b6\'a8\'b4\'f3\'b0\'fc\'c8\'eb\'bf\'da\'ce\'c4\'bc\'fe
+\f2 \cf2 \
+   entry: ['webpack/hot/dev-server', path.resolve(__dirname, './app/main.js')],\
+\
+\cf5 	// 
+\f1 \'c5\'e4\'d6\'c3\'b4\'f2\'b0\'fc\'bd\'e1\'b9\'fb\'a3\'acpath\'b6\'a8\'d2\'e5\'ca\'e4\'b3\'f6\'ce\'c4\'bc\'fe\'bc\'d0\'a3\'acfilename\'b6\'a8\'d2\'e5\'b4\'f2\'b0\'fc\'bd\'e1\'b9\'fb\'ce\'c4\'bc\'fe\'b5\'c4\'c3\'fb\'b3\'c6
+\f2 \cf2 \
+	output: \{\
+        path: path.resolve(__dirname, './build'),\
+        filename: 'bundle.js'\
+    \},\
+\
+\cf5 	// 
+\f1 \'c9\'e8\'d6\'c3\'b7\'fe\'ce\'f1\'c6\'f7\'b6\'cb\'bf\'da\'ba\'c5
+\f2 \cf2 \
+   devServer: \{\
+        inline: true,\
+        port: 8181\
+    \},\
+\
+	// 
+\f1 \'b6\'a8\'d2\'e5\'c4\'a3\'bf\'e9\'b4\'a6\'c0\'ed\'c2\'df\'bc\'ad
+\f2 \
+	// 
+\f1 \'d3\'c3
+\f2 loaders
+\f1 \'b6\'a8\'d2\'e5\'d2\'bb\'cf\'b5\'c1\'d0\'bc\'d3\'d4\'d8\'c6\'f7\'a3\'ac\'d2\'d4\'bc\'b0\'d2\'bb\'d0\'a9\'d5\'fd\'d4\'f2
+\f2 \
+	// 
+\f1 \'b5\'b1\'d0\'e8\'d2\'aa\'bc\'d3\'d4\'d8\'b5\'c4\'ce\'c4\'bc\'fe\'c6\'a5\'c5\'e4\'b5\'bd
+\f2 test
+\f1 \'b5\'c4\'d5\'fd\'d4\'f2\'ca\'b1\'a3\'ac\'bb\'e1\'b5\'f7\'d3\'c3\'ba\'f3\'c3\'e6\'b5\'c4
+\f2 loaders
+\f1 \'b6\'d4\'ce\'c4\'bc\'fe\'bd\'f8\'d0\'d0\'b4\'a6\'c0\'ed
+\f2 \
+	module: \{\
+        loaders: [\
+            \{\
+                test: /\\.js?$/,\
+                exclude: /(node_modules|bower_components)/,\
+                loader: 'babel',\
+                query: \{\
+                    presets: ['es2015', 'react']\
+                \}\
+\
+            \}\
+        ]\
+    \},\
+    plugins: [\
+        new webpack.HotModuleReplacementPlugin()\
+    ]\
+\};}

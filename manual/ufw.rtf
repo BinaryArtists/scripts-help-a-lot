@@ -1,0 +1,35 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1504\cocoasubrtf830
+{\fonttbl\f0\fnil\fcharset134 PingFangSC-Regular;}
+{\colortbl;\red255\green255\blue255;\red33\green36\blue38;\red53\green53\blue53;\red255\green255\blue255;
+}
+{\*\expandedcolortbl;;\cssrgb\c17255\c18824\c20000;\cssrgb\c27059\c27059\c27059;\cssrgb\c100000\c100000\c100000;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\sl760\partightenfactor0
+
+\f0\b\fs48 \cf2 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Ubuntu\'c4\'ac\'c8\'cf\'b7\'c0\'bb\'f0\'c7\'bd\'b0\'b2\'d7\'b0.\'c6\'f4\'d3\'c3.\'c5\'e4\'d6\'c3.\'b6\'cb\'bf\'da.\'b2\'e9\'bf\'b4\'d7\'b4\'cc\'ac\'cf\'e0\'b9\'d8\'d0\'c5\'cf\'a2\
+\
+\pard\pardeftab720\sl560\sa320\partightenfactor0
+
+\fs32 \cf3 \cb4 \strokec3 \'d7\'ee\'bc\'f2\'b5\'a5\'b5\'c4\'d2\'bb\'b8\'f6\'b2\'d9\'d7\'f7\'a3\'ba
+\b0 \
+sudo ufw status(\'c8\'e7\'b9\'fb\'c4\'e3\'ca\'c7root\'a3\'ac\'d4\'f2\'c8\'a5\'b5\'f4sudo\'a3\'acufw status)\'bf\'c9\'bc\'ec\'b2\'e9\'b7\'c0\'bb\'f0\'c7\'bd\'b5\'c4\'d7\'b4\'cc\'ac\'a3\'ac\'ce\'d2\'b5\'c4\'b7\'b5\'bb\'d8\'b5\'c4\'ca\'c7\'a3\'bainactive(\'c4\'ac\'c8\'cf\'ce\'aa\'b2\'bb\'bb\'ee\'b6\'af)\'a1\'a3\cb1 \cb4 sudo ufw version\'b7\'c0\'bb\'f0\'c7\'bd\'b0\'e6\'b1\'be\'a3\'ba\cb1 \cb4 ufw 0.29-4ubuntu1\cb1 \cb4 Copyright 2008-2009 Canonical Ltd.\cb1 \cb4 ubuntu \'cf\'b5\'cd\'b3\'c4\'ac\'c8\'cf\'d2\'d1\'b0\'b2\'d7\'b0ufw.\
+
+\b 1.\'b0\'b2\'d7\'b0
+\b0 \
+sudo apt-get install ufw\
+
+\b 2.\'c6\'f4\'d3\'c3
+\b0 \
+sudo ufw enable\cb1 \cb4 sudo ufw default deny\cb1 \cb4 \'d4\'cb\'d0\'d0\'d2\'d4\'c9\'cf\'c1\'bd\'cc\'f5\'c3\'fc\'c1\'ee\'ba\'f3\'a3\'ac\'bf\'aa\'c6\'f4\'c1\'cb\'b7\'c0\'bb\'f0\'c7\'bd\'a3\'ac\'b2\'a2\'d4\'da\'cf\'b5\'cd\'b3\'c6\'f4\'b6\'af\'ca\'b1\'d7\'d4\'b6\'af\'bf\'aa\'c6\'f4\'a1\'a3\'b9\'d8\'b1\'d5\'cb\'f9\'d3\'d0\'cd\'e2\'b2\'bf\'b6\'d4\'b1\'be\'bb\'fa\'b5\'c4\'b7\'c3\'ce\'ca\'a3\'ac\'b5\'ab\'b1\'be\'bb\'fa\'b7\'c3\'ce\'ca\'cd\'e2\'b2\'bf\'d5\'fd\'b3\'a3\'a1\'a3\
+
+\b 3.\'bf\'aa\'c6\'f4/\'bd\'fb\'d3\'c3
+\b0 \
+sudo ufw allow|deny [service]\cb1 \cb4 \'b4\'f2\'bf\'aa\'bb\'f2\'b9\'d8\'b1\'d5\'c4\'b3\'b8\'f6\'b6\'cb\'bf\'da\'a3\'ac\'c0\'fd\'c8\'e7\'a3\'ba\cb1 \cb4 sudo ufw allow smtp\'d4\'ca\'d0\'ed\'cb\'f9\'d3\'d0\'b5\'c4\'cd\'e2\'b2\'bfIP\'b7\'c3\'ce\'ca\'b1\'be\'bb\'fa\'b5\'c425/tcp (smtp)\'b6\'cb\'bf\'da\cb1 \cb4 sudo ufw allow 22/tcp \'d4\'ca\'d0\'ed\'cb\'f9\'d3\'d0\'b5\'c4\'cd\'e2\'b2\'bfIP\'b7\'c3\'ce\'ca\'b1\'be\'bb\'fa\'b5\'c422/tcp (ssh)\'b6\'cb\'bf\'da\cb1 \cb4 \'d5\'e2\'b8\'f6\'ba\'dc\'d6\'d8\'d2\'aa\'a3\'acssh\'d4\'b6\'b3\'cc\'b5\'c7\'c2\'bc\'d3\'c3\'d3\'daSecureCRT\'b5\'c8\'c8\'ed\'bc\'fe\'bd\'a8\'d2\'e9\'bf\'aa\'c6\'f4\'a1\'a3\'bb\'f2\'d5\'df\'b2\'bb\'d2\'aa\'bf\'aa\'b7\'c0\'bb\'f0\'c7\'bd\'a1\'a3\cb1 \cb4 sudo ufw allow 53 \'d4\'ca\'d0\'ed\'cd\'e2\'b2\'bf\'b7\'c3\'ce\'ca53\'b6\'cb\'bf\'da(tcp/udp)\cb1 \cb4 sudo ufw allow from 192.168.1.100 \'d4\'ca\'d0\'ed\'b4\'cbIP\'b7\'c3\'ce\'ca\'cb\'f9\'d3\'d0\'b5\'c4\'b1\'be\'bb\'fa\'b6\'cb\'bf\'da\cb1 \cb4 sudo ufw allow proto udp 192.168.0.1 port 53 to 192.168.0.2 port 53\cb1 \cb4 sudo ufw deny smtp \'bd\'fb\'d6\'b9\'cd\'e2\'b2\'bf\'b7\'c3\'ce\'casmtp\'b7\'fe\'ce\'f1\cb1 \cb4 sudo ufw delete allow smtp \'c9\'be\'b3\'fd\'c9\'cf\'c3\'e6\'bd\'a8\'c1\'a2\'b5\'c4\'c4\'b3\'cc\'f5\'b9\'e6\'d4\'f2\
+
+\b 4.\'b2\'e9\'bf\'b4\'b7\'c0\'bb\'f0\'c7\'bd\'d7\'b4\'cc\'ac
+\b0 \
+sudo ufw status\cb1 \cb4 \'d2\'bb\'b0\'e3\'d3\'c3\'bb\'a7\'a3\'ac\'d6\'bb\'d0\'e8\'c8\'e7\'cf\'c2\'c9\'e8\'d6\'c3\'a3\'ba\cb1 \cb4 sudo apt-get install ufw\cb1 \cb4 sudo ufw enable\cb1 \cb4 sudo ufw default deny\cb1 \cb4 \'d2\'d4\'c9\'cf\'c8\'fd\'cc\'f5\'c3\'fc\'c1\'ee\'d2\'d1\'be\'ad\'d7\'e3\'b9\'bb\'b0\'b2\'c8\'ab\'c1\'cb\'a3\'ac\'c8\'e7\'b9\'fb\'c4\'e3\'d0\'e8\'d2\'aa\'bf\'aa\'b7\'c5\'c4\'b3\'d0\'a9\'b7\'fe\'ce\'f1\'a3\'ac\'d4\'d9\'ca\'b9\'d3\'c3sudo ufw allow\'bf\'aa\'c6\'f4\'a1\'a3\cb1 \cb4 \'bf\'aa\'c6\'f4/\'b9\'d8\'b1\'d5\'b7\'c0\'bb\'f0\'c7\'bd (\'c4\'ac\'c8\'cf\'c9\'e8\'d6\'c3\'ca\'c7\'a1\'afdisable\'a1\'af)\cb1 \cb4 sudo ufw enable|disable\cb1 \cb4 \'d7\'aa\'bb\'bb\'c8\'d5\'d6\'be\'d7\'b4\'cc\'ac\cb1 \cb4 sudo ufw logging on|off\cb1 \cb4 \'c9\'e8\'d6\'c3\'c4\'ac\'c8\'cf\'b2\'df\'c2\'d4 (\'b1\'c8\'c8\'e7 \'a1\'b0mostly open\'a1\'b1 vs \'a1\'b0mostly closed\'a1\'b1)\cb1 \cb4 sudo ufw default allow|deny\cb1 \cb4 \'d0\'ed \'bf\'c9\'bb\'f2\'d5\'df\'c6\'c1\'b1\'ce\'b6\'cb\'bf\'da (\'bf\'c9\'d2\'d4\'d4\'da\'a1\'b0status\'a1\'b1 \'d6\'d0\'b2\'e9\'bf\'b4\'b5\'bd\'b7\'fe\'ce\'f1\'c1\'d0\'b1\'ed)\'a1\'a3\'bf\'c9\'d2\'d4\'d3\'c3\'a1\'b0\'d0\'ad\'d2\'e9\'a3\'ba\'b6\'cb\'bf\'da\'a1\'b1\'b5\'c4\'b7\'bd\'ca\'bd\'d6\'b8\'b6\'a8\'d2\'bb\'b8\'f6\'b4\'e6\'d4\'da\'d3\'da/etc/services\'d6\'d0\'b5\'c4\'b7\'fe\'ce\'f1\'c3\'fb\'b3\'c6\'a3\'ac\'d2\'b2\'bf\'c9\'d2\'d4\'cd\'a8\'b9\'fd\'b0\'fc\'b5\'c4meta-data\'a1\'a3 \'a1\'aeallow\'a1\'af \'b2\'ce\'ca\'fd\'bd\'ab\'b0\'d1\'cc\'f5\'c4\'bf\'bc\'d3\'c8\'eb /etc/ufw/maps \'a3\'ac\'b6\'f8 \'a1\'aedeny\'a1\'af \'d4\'f2\'cf\'e0\'b7\'b4\'a1\'a3\'bb\'f9\'b1\'be\'d3\'ef\'b7\'a8\'c8\'e7\'cf\'c2\'a3\'ba\cb1 \cb4 sudo ufw allow|deny [service]\cb1 \cb4 \'cf\'d4\'ca\'be\'b7\'c0\'bb\'f0\'c7\'bd\'ba\'cd\'b6\'cb\'bf\'da\'b5\'c4\'d5\'ec\'cc\'fd\'d7\'b4\'cc\'ac\'a3\'ac\'b2\'ce\'bc\'fb /var/lib/ufw/maps\'a1\'a3\'c0\'a8\'ba\'c5\'d6\'d0\'b5\'c4\'ca\'fd\'d7\'d6\'bd\'ab\'b2\'bb\'bb\'e1\'b1\'bb\'cf\'d4\'ca\'be\'b3\'f6\'c0\'b4\'a1\'a3\cb1 \cb4 sudo ufw status\cb1 \cb4 UFW \'ca\'b9\'d3\'c3\'b7\'b6\'c0\'fd\'a3\'ba\cb1 \cb4 \'d4\'ca\'d0\'ed 53 \'b6\'cb\'bf\'da\cb1 \cb4 $ sudo ufw allow 53\cb1 \cb4 \'bd\'fb\'d3\'c3 53 \'b6\'cb\'bf\'da\cb1 \cb4 $ sudo ufw delete allow 53\cb1 \cb4 \'d4\'ca\'d0\'ed 80 \'b6\'cb\'bf\'da\cb1 \cb4 $ sudo ufw allow 80/tcp\cb1 \cb4 \'bd\'fb\'d3\'c3 80 \'b6\'cb\'bf\'da\cb1 \cb4 $ sudo ufw delete allow 80/tcp\cb1 \cb4 \'d4\'ca\'d0\'ed smtp \'b6\'cb\'bf\'da\cb1 \cb4 $ sudo ufw allow smtp\cb1 \cb4 \'c9\'be\'b3\'fd smtp \'b6\'cb\'bf\'da\'b5\'c4\'d0\'ed\'bf\'c9\cb1 \cb4 $ sudo ufw delete allow smtp\cb1 \cb4 \'d4\'ca\'d0\'ed\'c4\'b3\'cc\'d8\'b6\'a8 IP\cb1 \cb4 $ sudo ufw allow from 192.168.254.254\cb1 \cb4 \'c9\'be\'b3\'fd\'c9\'cf\'c3\'e6\'b5\'c4\'b9\'e6\'d4\'f2\cb1 \cb4 $ sudo ufw delete allow from 192.168.254.254\
+}
