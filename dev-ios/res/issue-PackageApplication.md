@@ -25,5 +25,3 @@ sudo xcode-select -switch /Applications/Xcode.app/Contents/Developer/
 
 chmod +x /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/usr/bin/PackageApplication
 ```
-
-执行完成后, 重新用命令行打包, 此问题便不会存在了。
