@@ -1,0 +1,965 @@
+bplist00Ò_WebMainResource_WebSubresourcesÕ	
+^WebResourceURL_WebResourceData_WebResourceMIMEType_WebResourceTextEncodingName_WebResourceFrameName_.http://cocoadevcentral.com/articles/000082.phpOA <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head>
+    <title>CocoaDevCentral: Cocoa Style for Objective-C: Part I</title>
+    <link rel="stylesheet" href="/css/cocoadevcentral.css" type="text/css">
+    <link rel="shortcut icon" href="/faviconnew.ico" type="image/x-icon">
+</head>
+<body>
+
+
+<div class="docheader">
+    
+    <b><a href="/">CocoaDevCentral.com</a></b> . <a href="http://cocoadevcentral.com/archives.php">Articles</a> .
+    <i><a href="/articles/000082.php">Cocoa Style for Objective-C: Part I</a></i>
+    
+    <span style="float: right"><a href="/message.page"><img src="/images/global/mini-envelope-opaque.png" valign="middle" style="background-color: white" alt="Email"> Feedback</a></span>
+
+</div>
+
+
+
+<div class="content">
+    
+    <img class="title" src="/images/articles/000082.png" alt="C Language Tutorial for Cocoa">
+
+    <br>
+    
+    <p>
+    <img src="/images/global/m-file.png" alt="Objective-C File Icon"><br>
+    In a nutshell: <em>how Cocoa and Objective-C code should look</em>
+    </p>
+    
+    <p>
+    Once you've figured out the basics of Objective-C and Cocoa, you're ready to start writing
+    some code. But the conventions of naming and formatting Objective-C code are not the same
+    as traditional C, C++ or even Java programs.
+    </p>
+    
+    <p>
+    Apple has laid out a set of guidelines as to how code should be written for maximum
+    clarity and integration with the frameworks. In addition, there are some undocumented
+	conventions that Cocoa developers often use.
+    </p>
+
+	<p>
+	In essence, the human factor present in Apple's products for the end user
+	can be found in Objective-C and Cocoa themselves.
+	</p>
+	
+	<p class="extranote">
+	<b>Part 1</b>: basics on naming 
+	classes, variables, accessors, general methods and abbreviations. <br>
+	<a href="/articles/000083.php">Part 2</a>: more detail on
+	method names, global symbols, the id type, method parameters, etc
+	</p>
+	
+
+    
+</div>
+
+
+<!--
+
+<div class="content" style="background-color: #f0f0f0; color: #3e3e3e">
+
+<div class="content" style="text-align: center; background-color: #e4e4e4">
+
+    <a href="http://maxify.com" target="_new"><img src="/maxify-ondemand-ad.png" border="0"></a>
+    <br />
+    <i>Advertisement</i>
+    
+    
+        <span style="font-style: italic; font-weight: bold; color: #067e2a">Cocoa Dev Central users:</span>
+        
+        We need to improve our server situation to handle new additions, but the site generates no revenue to speak of. If you can help us get donated or
+        steeply discounted Xserves, <a href="/message.page" style="color: black;">please contact us</a>.</em>
+         Jul.26.2004
+
+
+</div>
+
+-->
+
+<div><a name="1"></a></div>
+<div class="content">
+
+	<p class="pagenumber"><a href="#1">1</a> of 7</p>
+
+	<h3>Putting Thought into Naming</h3>
+	<img src="/images/articles/style-highway-sign.png" alt="Highway Sign" style="float: right">	
+	
+	<p>
+	In the earlier days of software development, the average program was made up of far less code. With smaller functions
+	and fewer variables, it was understood that <strong>cp</strong> meant character pointer and <strong>fread()</strong>
+	indicated a function that read data from a file. Since space on terminal screen was limited, short names
+	made the most sense.
+	</p>
+	
+	<p>
+	Newer programs, though, have many more variables and functions. In this environment, a short name becomes
+	ambiguous, which lends itself to buggy code. Xcode and other editors will autocomplete long names for you.
+	</p>
+	
+	<div class="listbox listleft">
+		
+		<div class="title">Cocoa Classes</div>
+		<div class="body">
+		NSPasteboard<br>
+		NSCell<br>
+		NSComboBox<br>
+		NSComboBoxCell<br>
+		NSMenuItem<br>
+		NSMenuItemCell<br>
+		</div>
+	</div>
+	
+	<p>
+	Cocoa strongly encourages <em>expressive, clear, non-ambiguious names</em>.
+	Take a look at the classes listed in the table to the left. You have some
+	idea of what they do just from their name.
+	</p>
+
+
+	<p>
+	Also notice how some are combinations of other class names. NSMenuItemCell suggests a cell
+	which is used by a menu item.
+	</p>
+	
+	<p>
+	Naming consistency isn't extra credit, it's an <b>essential part of being a great Cocoa programmer</b>.
+	Remember, since you do far more reading of code than writing, invest the time to type an extra eight characters.
+	</p>
+
+</div>
+
+
+<div><a name="2"></a></div>
+<div class="content">
+
+	<p class="pagenumber"><a href="#2">2</a> of 7</p>
+
+           
+    <h3>Class Names</h3>
+
+    <div class="listbox listright">
+    	
+    	<div class="title">Standard Classes</div>
+    	<div class="body">
+    	NSString<br>
+    	NSMutableArray<br>
+    	NSDictionary<br>
+    	</div>
+
+    	<div class="title">Custom Classes</div>
+    	<div class="body">
+    		<em>CDC</em>Recipient<br>
+    		<em>CDC</em>Email<br>
+    		<em>CDC</em>EmailAttachment<br>
+    	</div>
+
+    	<div class="title">Custom Subclasses</div>
+    	<div class="body">
+			CDC<strong>TableView</strong><br>
+			CDC<strong>OutlineView</strong><br>
+			CDC<strong>ArrayController</strong><br>
+    	</div>
+
+    </div>
+    
+    <p>
+    Whether they're a standard part of Cocoa or your own creation, class names are always <b>capitalized</b>.
+    </p>
+
+	<p>
+	Objective-C doesn't have namespaces, so <b>prefix your class names with initials</b>.
+	This avoids "namespace collision," which is a situation where two pieces of code have the same name
+	but do different things. Classes created by Cocoa Dev Central would probably be prefixed with "<strong>CDC</strong>".
+	</p>
+	
+	<p>
+	If you <i>subclass</i> a standard Cocoa class, it's good idea to combine your prefix with the superclass name, such
+	as CDCTableView.
+	</p>
+ 
+	<p>
+	Most of the
+	standard Cocoa classes begin with <strong>NS</strong> for historical reasons, as Cocoa is based on the NeXTSTEP
+	development framework.
+	</p>
+
+	<div class="clearfloat">&nbsp;</div>
+	
+</div>
+
+
+
+
+<div><a name="3"></a></div>
+<div class="content">
+
+	<p class="pagenumber"><a href="#3">3</a> of 7</p>
+            
+    <h3>Variable Names</h3>
+    
+    <p>
+    Variable names start with lower-case letters, but are internally capitalized wherever a new word appears:
+    </p>
+        
+    <div class="example">
+NSString * streetAddress  = @"1 Infinite Loop";
+NSString * cityName       = @"Cupertino";
+NSString * countyName     = @"Santa Clara";
+</div>
+
+	<p>
+	As we discussed, Cocoa strongly favors clear, distinct variable names over terse ones. Ambiguity frequently
+	results in bugs, so be explicit.
+	</p>
+	
+	<div class="filename">Correct</div>
+	<div class="example">
+NSString       * <em>hostName</em>;
+NSNumber       * <em>ipAddress</em>;
+NSArray        * <em>accounts</em>;
+</div>
+
+	<br>
+	
+	<div class="filename">Incorrect</div>
+	<div class="example">
+NSString       * HST_NM;      // all caps and too terse
+NSNumber       * theip;       // a word or abbreviation?
+NSMutableArray * nsma;        // completely ambiguous
+</div>
+
+	<p>
+	The variable naming syntax rules from C and many other languages apply. Variables can't start with a
+	number, no spaces, no special characters other than underscores.
+	</p>
+
+	<p>
+	Apple <b>discourages using an underscore as a prefix</b> for a private instance variable.
+	</p>
+
+    <div class="example">
+NSString * name    // correct!
+NSString * _name   // _incorrect_
+</div>
+
+	<p>
+	In fact, the idea of a private prefix is largely unnecessary, as virtually all instance variables
+	in Cocoa are protected anyway.
+	</p>
+	
+	<div class="clearfloat"></div>
+</div>
+
+
+<div><a name="4"></a></div>
+<div class="content">
+
+	<p class="pagenumber"><a href="#4">4</a> of 7</p>
+	
+	<h3>Variable Names: Indicating Type</h3>
+	
+	<p>
+	In terms of real-world practice, a variable name usually <b>does not indicate the type if it is
+	something common like NSString, NSArray, NSNumber or BOOL</b>.
+	</p>
+	
+	<div class="filename">Correct</div>
+    <div class="example">
+NSString       * accountName;
+NSMutableArray * mailboxes;
+NSArray        * defaultHeaders;
+BOOL             userInputWasUpdated;
+</div>
+
+	<br>
+	
+	<div class="filename">OK, But Not Ideal</div>
+	<div class="example">
+NSString       * accountName<strong>String</strong>;
+NSMutableArray * mailbox<strong>Array</strong>;
+NSArray        * defaultHeaders<strong>Array</strong>;
+BOOL             userInputWasUpdated<strong>BOOL</strong>;
+</div>
+
+	<p>
+	If a variable is not one of these types, the name should reflect it. Also, there are certain
+	classes that you only need one instance of. In this case, just name the variable
+	based on the class name. Font manager is a good example of this.
+	</p>
+
+	<div class="filename">When to Indicate Type</div>
+    <div class="example">
+NSImage             * <em>previewPane</em>Image;  // self-explanatory
+NSProgressIndicator * <em>upload</em>Indicator;   // shows progress for uploads
+NSFontManager       * <em>fontManager</em>;       // only one of these, basic name ok
+</div>
+
+	<br>
+	
+	<p>
+	In most cases, <b>a plural (such as mailboxes) implies an NSArray or NSSet</b>. There's no need
+	to say "mutable" in the name.
+	</p>
+	
+	<p>If a plural is not an NSArray or NSSet, it might make sense to specify this:
+	</p>
+
+    <div class="example">
+NSDictionary * <em>keyed</em>AccountNames;
+NSDictionary * message<em>Dictionary</em>;
+NSIndexSet   * selectedMailboxes<em>IndexSet</em>;
+</div>
+
+	<p>
+	Admittedly, this is a bit of a grey area.
+	</p>
+
+</div>
+
+
+
+<div><a name="5"></a></div>
+<div class="content">
+
+	<p class="pagenumber"><a href="#5">5</a> of 7</p>
+            
+    <h3>Method Names</h3>
+
+	<p>
+	Methods are perhaps the most important topic we can talk about. Most object-oriented languages
+	use a syntax like:
+	</p>
+	
+	<div class="filename">Example from Another Language</div>
+	<div class="example">
+object.begin(resource);
+object.processData(resource, data, true);
+object.end(true);
+</div>
+
+	<p>
+	While these methods names are easy to write the first time, the actual behavior is not clear. This is much
+	more of a problem amidst massive amounts of surrounding code.
+	</p>
+	
+	<p>
+	Cocoa programmers think from the end, <b>choosing a method name based on how it will look
+	in actual use</b>. Let's say I want to write an in-memory file object
+	written to disk. In some languages, that would look like this:
+	</p>
+	
+	<div class="example">
+<strong>fileWrapper</strong>.<em>write</em>(<strong>path</strong>, <strong>true</strong>, <strong>true</strong>);
+</div>
+
+	<p>
+	In Cocoa/Objective-C, it looks like this:
+	</p>
+	
+	<div class="example">
+[<strong>fileWrapper</strong> <em>writeToFile</em>: <strong>path</strong> <em>atomically</em>: <strong>YES</strong> <em>updateFilenames</em>: <strong>YES</strong>];
+</div>
+	
+	<p>
+	 When creating a method, ask yourself if its behavior will be clear from its
+	name alone, particularly when surrounded by tens of thousands of lines of code.
+	</p>
+
+	<br>
+	
+	<p>
+	Programmers do much more reading of code than writing, so <b>Objective-C and Cocoa are designed to read well</b>.
+	Reading a message as a phrase is a good way to test your method name:
+	</p>
+	
+	<div class="example">
+// "open the file with this application and deactivate"
+
+[finder <em>openFile</em>: mailing <em>withApplication</em>: @"MailDrop" <em>andDeactivate</em>: YES];
+</div>
+
+	<p>
+	This message is sent to NSWorkspace (aka Finder), and it clearly passes the "phrase" test.
+	</p>
+
+</div>
+
+
+<div><a name="6"></a></div>
+<div class="content">
+
+	<p class="pagenumber"><a href="#6">6</a> of 7</p>
+            
+    <h3>Method Names: Accessors</h3>
+
+	<p>
+	In constrast to many other languages, Objective-C <b>discourages use of the "get" prefix on simple accessors</b>. Instance
+	variables and methods can have the same name, so use this to your advantage:
+	</p>
+	
+	<div class="filename">Correct!</div>
+	<div class="example">
+- (NSString *) <em>name</em>;
+- (NSString *) <em>color</em>;
+
+name  = [object <em>name</em>];
+color = [object <em>color</em>];
+</div>
+
+	<br>
+
+	<div class="filename">Incorrect</div>
+	<div class="example">
+- (NSString *) getName;
+- (NSColor  *) getColor;
+
+name  = [object getName];
+color = [object getColor];
+</div>
+	
+	<p>
+	The "get" prefix is, however, used in situations when you're returning a value indirectly via a memory address:
+	</p>
+
+	<div class="filename">When to Use "Get" Prefix</div>
+	<div class="example">
+// copy objects from the NSArray to the buffer
+
+id *buffer = (id *) malloc(sizeof(id) * [array count]);
+[array <em>get</em>Objects: buffer];
+</div>
+
+	<span class="extranote">
+	( Don't worry if you don't know what <strong>malloc</strong> does. )
+	</span>
+
+	<p>
+	The "set" prefix is always used on setters, though:
+	</p>
+
+	<div class="example">
+[object <strong>set</strong>Name:  name];
+[object <strong>set</strong>Color: color];
+</div>
+	
+	<br>
+	
+	<h3>Adjectives</h3>
+
+	<p>
+	Not all accessors return values like name, date, height, etc. Some represent
+	a particularly quality of an object. These are often represented by BOOLs.
+	</p>
+	
+	<p>
+	For example, "selectable". In Objective-C, the getter for this key
+	is called <b>-isSelectable</b>, but the setter is <b>-setSelectable:</b>
+	</p>
+
+	<div class="example">
+BOOL selectable = [textView <em>isSelectable</em>];
+BOOL editable   = [textView <em>isEditable</em>];
+
+[textView <em>setSelectable</em>: YES];    // no "is"
+[textView <em>setEditable</em>:   YES];    // no "is"
+
+// if textview is editable.
+
+if ([textView <em>isEditable</em>])
+      [textView <em>setEditable</em>: NO];
+</div>
+
+	<br>
+	
+	<p>
+	Keep in mind that naming your accessors according to all of these rules isn't purely an issue of clarity and aesthetics.
+	Cocoa relies heavily on <a href="http://developer.apple.com/documentation/Cocoa/Conceptual/KeyValueCoding/">key-value coding</a> for much of its magic, and KVC relies on properly-named accessors.
+	</p>
+
+</div>
+
+
+<div><a name="7"></a></div>
+<div class="content">
+
+	<p class="pagenumber"><a href="#7">7</a> of 7</p>
+
+	<h3>Abbreviations</h3>
+	
+	<p>
+	You've probably noticed that the general principle here is to spell things out
+	to avoid confusion. However, there are times where acronyms are so well-known
+	that spelling them out either doesn't help or can actually create confusion.
+	</p>
+	
+	<p>
+	Here is an excerpt of the <a href="http://developer.apple.com/documentation/Cocoa/Conceptual/CodingGuidelines/Articles/APIAbbreviations.html">complete list</a>
+	of acceptable abbreviations:
+	</p>
+	
+	<div class="example">
+     int     max     min     TIFF    HTTP    URL     HTML     PDF
+     rect    temp    info    JPG     FTP     RTF     XML      ASCII
+</div>
+
+	<br>
+	
+	<h3>Preprocessor Contants / Macros</h3>
+	
+	<p>
+	Just like in ANSI C, preprocessor definitions should be in all caps
+	</p>
+	
+	<div class="example">
+#define <strong>MAX_ENTRIES</strong> 20
+#ifdef  <strong>ENABLE_BINDINGS_SUPPORT</strong>
+</div>
+
+	
+</div>
+
+<div class="content">
+    
+    <br>
+    
+    <h3>Wrap Up</h3>
+    
+    <p>
+    Now that you've got the basics down, take a look at <a href="/articles/000083.php">Part II</a>, which
+	goes into more detail on method naming, global functions and symbols, dynamic typing with id, naming
+	method parameters and more.
+    </p>    
+    
+    <p>
+    As always, <a href="/message.page">let us know</a> what you think about the tutorial.
+    </p>
+
+	<br>
+	
+    <h3>Further Reading</h3>
+
+
+	<div class="furtherreading">
+
+		<div class="body">
+			
+			<table cellpadding="2" cellspacing="2" style="width: 100%"> 
+
+				<tbody><tr>
+					<td class="icon"><a href="/articles/000083.php"><img src="/images/global/miniglobe-orange.png" alt="Local Page" valign="middle" border="0"></a></td>
+					<td><a href="/articles/000083.php">Cocoa and Objective-C Style: Part II</a></td>
+					<td>second part of this tutorial</td>
+				</tr>
+
+				<tr>
+					<td class="icon"><img src="/images/global/mini-apple.png" alt="Apple"></td>
+					<td><a href="http://developer.apple.com/documentation/Cocoa/Conceptual/CodingGuidelines/CodingGuidelines.html">Cocoa Guidelines</a></td>
+					<td>the authorative documents on coding guidelines for Cocoa</td>
+				</tr>
+
+				<tr>
+					<td class="icon"><img src="/images/global/mini-apple.png" alt="Apple"></td>
+					<td><a href="http://developer.apple.com/documentation/Cocoa/Conceptual/ObjectiveC/LanguageSummary/chapter_5_section_11.html">Objective-C Naming</a></td>
+					<td>a short summary of Apple's conventions for the language</td>
+				</tr>
+
+			</tbody></table>
+		</div>
+	</div>
+    
+    <p class="footer">
+    author: <a href="/message.page">Scott Stevenson</a> / 
+    Â© 2004 <a href="http://treehouseideas.com/">Tree House Ideas</a>, <a href="/">Cocoa Dev Central</a>
+    </p>
+
+    <div style="clear: both"></div>
+    
+</div>
+
+
+
+</body></html>Ytext/htmlUUTF-8P§"&*Ô_WebResourceResponse_2http://cocoadevcentral.com/css/cocoadevcentral.cssOrbplist00ÔjkX$versionX$objectsY$archiverT$top † ¯ #)*0123MNOPQRSTUVWXYZ[\]^_`adeU$nullİ	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€	€€€€€€€Ó$%&'(WNS.base[NS.relative€ €€_2http://cocoadevcentral.com/css/cocoadevcentral.cssÒ+,-.Z$classnameX$classesUNSURL¢-/XNSObject#Aºw›Ô ÈÓ456ALWNS.keysZNS.objectsª789:;<=>?@€	€
+€€€€€€€€ªBDEFGHIJK€€€€€€€€€€€VServer\Content-TypeWExpires]Last-ModifiedTEtagTDate]Accept-Ranges^Content-Length]Cache-ControlZConnection_>Apache/1.3.41 (Darwin) mod_ssl/2.8.31 OpenSSL/0.9.8g PHP/5.2.5Xtext/css_Tue, 27 Jan 2015 09:37:04 GMT_Mon, 21 Feb 2005 01:33:28 GMT_"1b4a64-10fa-42193a68"_Tue, 27 Jan 2015 09:36:04 GMTUbytesT4346Zmax-age=60UcloseÒ+,bc\NSDictionary¢b/úÒ+,fg_NSHTTPURLResponse£hi/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑlm_WebResourceResponse€    # - 2 7 Z ` { ~ ‚ … ˆ ‹  ’ ™ œ Ÿ ¢ ¥ ¨ ª ¬ ® ° ² ³ µ · ¹ » ½ ¿ Á È Ğ Ü Ş à â'069BKMOV^itvxz|~€‚„†ˆ“•—™›Ÿ¡£¥§©°½ÅÓØİëúT]}¶ÖÜáìò÷
+#';I[^t             n              vOú
+body {
+	font-family: "Trebuchet MS", Trebuchet, Tahoma, sans-serif;
+	font-size: 13px;
+	background-color: #454545;
+	color: white;
+	margin: 0px;
+}
+
+h3 {
+	font-weight: bold; color: #e24628; font-size: 1em;
+}
+
+h4 {
+	font-weight: bold; color: #e24628; font-size: 1em;
+}
+
+
+cite { font-style: normal; color: #067e2a; font-weight: bold; }
+var { font-style: normal; color: #0a4aa7; font-weight: bold; }
+
+.example cite { font-weight: normal; }
+.example var { font-weight: normal; }
+
+.content {
+
+	background-color: white;
+	/* color: #3e3e3e */
+	color: #4e4e4e;
+	width: 580px;
+	/*padding: 30px 50px; */
+	padding: 10px 50px 10px 50px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+
+
+	line-height: 24px;
+}
+
+
+.notice {
+
+	background-color: #efefef;
+	color: #4e4e4e;
+	width: 630px;
+	/*padding: 30px 50px; */
+	padding: 10px 25px 10px 25px;
+	margin-top: 20px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	font-style: italic;
+
+
+	line-height: 24px;
+}
+
+.docheader
+{
+
+	width: 650px;
+	padding: 15px;
+	margin-left: auto;
+	margin-right: auto;
+	
+	background-color: #373737;
+
+
+	font-family: "Trebuchet MS", Trebuchet, Tahoma, sans-serif;
+	font-size: 13px;
+	text-align: left;
+}
+
+.docheader	a:link		{color: white; text-decoration: none; }
+.docheader	a:visited	{color: white; text-decoration: none; }
+.docheader	a:hover		{color: white; text-decoration: none; border-bottom: 1px dotted white; }
+
+em {font-weight: bold; font-style: normal; color: #e24628}
+.example em {font-weight: normal;}
+
+.clearfloat
+{
+	clear: both;
+}
+
+
+strong {font-weight: normal; color: #161616}
+
+.listbox .title
+{
+	border: 1px solid gray;
+	text-align: center;
+	font-weight: bold;
+	padding: 0px 10px;
+}
+
+.listbox .body
+{
+	border-top: 3px solid #e3e3e3;
+	background-color: #f7f7f7;
+	padding: 5px 10px;
+}
+
+.listbox
+{
+	font-size: 12px;
+}
+
+.listbox em
+{
+	font-weight: normal;
+}
+
+.listleft
+{
+	margin-right: 30px;
+	float: left;
+}
+
+.listright
+{
+	margin-left: 30px;
+	float: right;
+}
+
+.furtherreading
+{
+	font-family:		"Lucida Grande", Helvetica, sans-serif;
+	line-height:		15px;
+	font-size:			11px;
+}
+
+.furtherreading td.icon
+{
+	width: 15px;
+}
+
+
+.furtherreading a:link		{color: #4e4e4e; text-decoration: none; border-bottom: 1px dotted gray;}
+.furtherreading a:visited	{color: #4e4e4e; text-decoration: none; border-bottom: 1px dotted gray;}
+.furtherreading a:hover		{color: #4e4e4e; color: #e24628}
+
+
+.example
+{
+	display: block;
+	background-color: #f7f7f7;
+	padding: 5px 10px;
+	line-height: 16px;
+	margin-left: 22px;
+	border-right: 1px solid gray;
+	border-bottom: 1px solid gray;
+	border-top: 1px solid #e8e8e8;
+	border-left: 1px solid #d3d3d3;
+	font-family: Monaco, monospace;
+	font-size: 11px;
+	white-space: pre;
+}
+
+.filename
+{
+	display: block;
+	background-color: #e8e8e8;
+	padding: 5px 10px;
+	line-height: 12px;
+	margin-left: 22px;
+	border-top: 1px solid #d3d3d3;
+	border-left: 1px solid #d3d3d3;
+	border-right: 1px solid gray;
+	border-bottom: 1px solid #a6a6a6;
+	font-family: "Trebuchet MS", Trebuchet, Tahoma, sans-serif;
+	font-size: 12px;
+	color: #383838;
+}
+
+.unixbox
+{
+	width: 400px;
+	height: 122px;
+	padding: 40px 39px 30px 25px;
+	background-image: url("/images/global/terminal-bg.png");
+	background-repeat: no-repeat;
+	font-family: Monaco, monospace;
+	font-size: 10px;
+	color: black;
+	line-height: 14px;
+	white-space: pre;
+	
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+a:link		{color: #e24628}
+a:visited	{color: #e24628}
+a:hover		{color: #4e4e4e}
+
+.listoflinks	{ line-height: 22px; }
+.listoflinks	a:link		{color: #4e4e4e}
+.listoflinks	a:visited	{color: #4e4e4e}
+.listoflinks	a:hover		{color: #4e4e4e; color: #e24628}
+.listoflinks	th			{ text-align: left; padding: 0.75em; }
+
+
+tr.icon			{ background-color: #f7f7f7; }
+tr.icon th		{ font-weight: normal;}
+td.cell1		{ background-color: #f0f0f0; }
+td.cell2		{ background-color: #e6e6e6; }
+.codecell		{ font-family: Monaco, monospace; font-size: 11px; line-height: 20px;}
+.codecell cite	{ font-weight: normal; }
+
+.content img.title { margin-bottom: 68px; margin-top: 50px; }
+
+.header
+{
+    font-weight: bold;
+}
+.pagenumber
+{
+    font-style: italic;
+    text-align: right;
+    font-size: 12px;
+}
+
+
+
+
+
+
+
+
+
+
+
+.footer 
+{
+    background-color: #f7f7f7;
+    border-top: 1px dashed gray;
+    margin-top: 65px;
+    margin-bottom: 0px;
+}
+
+
+.extranote
+{
+    font-style: italic;
+    font-size: 12px;
+    margin-top: 25px;
+    margin-left: 22px;
+}
+
+
+
+
+
+
+
+
+
+Xtext/cssÔ_Ahttp://cocoadevcentral.com/images/global/mini-envelope-opaque.pngO‚bplist00ÔjkX$versionX$objectsY$archiverT$top † ¯ #)*0123MNOPQRSTUVWXYZ[\]^_`adeU$nullİ	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€	€€€€€€€Ó$%&'(WNS.base[NS.relative€ €€_Ahttp://cocoadevcentral.com/images/global/mini-envelope-opaque.pngÒ+,-.Z$classnameX$classesUNSURL¢-/XNSObject#Aºw›ÔÛŒ ÈÓ456ALWNS.keysZNS.objectsª789:;<=>?@€	€
+€€€€€€€€ªBDEFGHIJK€€€€€€€€€€€VServer\Content-TypeWExpires]Last-ModifiedTEtagTDate]Accept-Ranges^Content-Length]Cache-ControlZConnection_>Apache/1.3.41 (Darwin) mod_ssl/2.8.31 OpenSSL/0.9.8g PHP/5.2.5Yimage/png_Tue, 27 Jan 2015 10:36:04 GMT_Wed, 19 Jan 2005 17:19:57 GMT_"1b4b8b-1a6-41ee96bd"_Tue, 27 Jan 2015 09:36:04 GMTUbytesS422\max-age=3600UcloseÒ+,bc\NSDictionary¢b/¦Ò+,fg_NSHTTPURLResponse£hi/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑlm_WebResourceResponse€    # - 2 7 Z ` { ~ ‚ … ˆ ‹  ’ ™ œ Ÿ ¢ ¥ ¨ ª ¬ ® ° ² ³ µ · ¹ » ½ ¿ Á È Ğ Ü Ş à â&+6?EHQZ\^emxƒ…‡‰‹‘“•—¢¤¦¨ª¬®°²´¶¸¿ÌÔâçìú	"cm­Ååëïü37KYkn„             n              †O¦‰PNG
+
+   IHDR      
+   »ø   	pHYs     šœ   gAMA  Øëõª    cHRM  kb  t6  øm  ‹v  jc  áe  2  )®xÜ`d  IDATxÚÁÉ 0° öß SòâPh%l#éîï ˜™ª’Ôİ‘™»‹óJLLdÀ
+$@ 1³°°èîîÆ£ÎÑÑÈ  Rww÷ÒÒR¬êœœœttt€ & ³€ªÅÄÄÂÂÂ !«s qqq 2€ bºš‘‘QTTTDD"İßßWçêêúöí[ @ A½4ÿóçÏšššQQQ³öÚÛÛ?}ú”“““••(@P¥@ÀËË&UUU êgÏ}üøQJJ
+ÈĞf€ bùóçÜqììì@Õòòò222@ íığáPâ€ bj­­­ıöí<p€  SƒÆˆºÑ—    IEND®B`‚Yimage/pngÔ_5http://cocoadevcentral.com/images/articles/000082.pngOwbplist00ÔjkX$versionX$objectsY$archiverT$top † ¯ #)*0123MNOPQRSTUVWXYZ[\]^_`adeU$nullİ	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€	€€€€€€€Ó$%&'(WNS.base[NS.relative€ €€_5http://cocoadevcentral.com/images/articles/000082.pngÒ+,-.Z$classnameX$classesUNSURL¢-/XNSObject#Aºw›ÿ5 ÈÓ456ALWNS.keysZNS.objectsª789:;<=>?@€	€
+€€€€€€€€ªBDEFGHIJK€€€€€€€€€€€VServer\Content-TypeWExpires]Last-ModifiedTEtagTDate]Accept-Ranges^Content-Length]Cache-ControlZConnection_>Apache/1.3.41 (Darwin) mod_ssl/2.8.31 OpenSSL/0.9.8g PHP/5.2.5Yimage/png_Tue, 27 Jan 2015 10:36:04 GMT_Wed, 19 Jan 2005 17:19:47 GMT_"1b4ac3-e2f-41ee96b3"_Tue, 27 Jan 2015 09:36:04 GMTUbytesT3631\max-age=3600UcloseÒ+,bc\NSDictionary¢b//Ò+,fg_NSHTTPURLResponse£hi/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑlm_WebResourceResponse€    # - 2 7 Z ` { ~ ‚ … ˆ ‹  ’ ™ œ Ÿ ¢ ¥ ¨ ª ¬ ® ° ² ³ µ · ¹ » ½ ¿ Á È Ğ Ü Ş à â*39<ENPRYalwy{}ƒ…‡‰‹–˜šœ ¢¤¦¨ª¬³ÀÈÖÛàîıWa¡¹Ùßäñ÷ü	(,@N`cy             n              {O/‰PNG
+
+   IHDR     [   ^l d   gAMA  ÖØÔOX2   tEXtSoftware Adobe ImageReadyqÉe<   ~PLTEì¨›ôÍÆâwb@@@üóñÚQ7ÌÌÌúæâßjTïµ©ç÷ÚÔòÁ¸¦¦¦Ü^F   sssêœäƒp»»»îîîUUUfff™™™İİİ"""DDDwww333ªªªˆˆˆæææ³³³MMMYYYòòò¿¿¿ŒŒŒÙÙÙ€€€×E)ÿÿÿ:V­×  7IDATxÚbĞ„FFFvMZ  É,šC „âÒ >ª;›l2>EŒƒ"4 ì
+v& s„X5X9©›.844˜€7$Ü™¸oh ÈÜ¬LŒÇ3hhP5884„ ©à¬`ƒãà€ b ÇœÏ©¡ÁM=Ó958àl&ˆ-ƒ:4 ˆä>&d!ê™Î…”ÒØ54}h ƒ&«r]Â¢¡-I¹ùÙåh|N$Œ@i´B˜	Ùë`Ğ ™Â=`¡@ÀÔŒš8À^äæ ×¬<0gBê>xh± ÉÀ
+á¢˜%„\
+q3²0Bi00",eæ&Xhğ@Lab Ğ @L¥ ‚PP")kñŞÿ„MËz‚ıTDaŸ$›¿¯P©æ7S¨­Rë™&k
+\æ‡Mß˜’•§li"ÄÇVÌ_!—†…s¤IèO8– b &`,)“âK·AŞä†úXÿ€]*+x!å$¼´äcE«SøP}Í)ğ`ã æLHh0ÂÂ¥$£#  MHá†QüÁr7+8ÉÃø‚ ‡³#œË J,œğô…V,°€Zu¬BHET‹¬på‚•LğxÁZ¸Ğ öĞ`Aª‰‰ÏÎÀCVÊO ş`æPˆp1¢*€…7È(ph° ‚˜©Î§'  ì¡Áƒ”ı%#ZÈ¡\o ,|X«pˆ@ÊFXh0B=ÌÇ«S-áàĞ  ¤ò#sC 0ÊĞc9_CåØy¸˜@õ4,ÁQ¸QàPä†–àv°|…>	€ b Æ-ZH0Ü ÈgeäÄ™ã¡M^¸Q²FĞĞ@ ò9Z‡äĞ öt¸x0S'råÍ®ÁŠ¬€…”X™4¡10E'  #YĞÛ¢øÊFnÌrƒCƒ[c@mŒ#Q[q«He„Qn  «Q2
+Ş:…$^§ ¤¹CƒV"¥Dch/$&!Õ6"‘
+	Hh È¬H­QnpFBjo úÜtåFno0 å YÈÉ9º¹À¾Eêºp°²@ ÒŞà€—çŒTÃ8
+5`c^<P÷³k Ú¢œÈmQFHts!Ú¢|`ÀT£Ö°œğà`á‚Œ!’°É	¯nQÚ¢,Øê9z € b€†« #¸YÀ€³ŸäƒºÜXú)<à^;#ê˜°àäddäd…#».°X`ï™¥Ëî§€,å˜r € í‚2ÁcÚge…ùÚ‡…6Y5»›œĞÎ'¨@E©…`U¦<±ÁƒœÆ€õa¡=aV*Eˆyx‚%}¢o = o€xX“7HÒ¨97|p3Cğ YJ_ @Y©±°
+i. @U<à 4`¡Á¢ÉÈÊ7ÈC €,4@…%÷`€ °ĞÀUè(  ÍQ€  4È  €FC Ğhh € d @£¡ h44@ †2  ÑĞ@ 4È  €ÈnFÆì`°32Òl  € +˜˜‰T]<ŸVÕdBŸb"abˆ‰ÔI$vAÈœ® áe†%Uy’Ìfc  Phjğ17îÂ]<Èt“ ¡}RCƒ4áÏ ÈtÄJ ¼¦	ˆ£‡@ BCƒÈU¢ˆÅƒ aRÈ 7y¡r 14¸4X¡ƒûŒhëd¡Ác*Ó‰
+>ã˜ĞC €HX‚†²xÆa"kÆ”¬å*œH#"@ë…„ˆ#FZh )¡ºx2‘D¿Ğ`A™¹ò¸	…†¦"³<I¡@¨¡Á1bÍÎˆl?;jT1ÁBëJ>vN”E‚,œHcìøCûÂ@´ésAA‚¡!ÀÌ¢äxyyÕ•É³a€ ‚¬¼Ìp .dÆ#òìúâAMpè C:õ]2M,,B(ó1°ù.
+Ø¢&0æA”à¥t8ò¡&vN0‰:„†%4ä uŒÄÏlšlÀ*ÈŒ ÄÀÉÀZ	Îˆ1½ RÆ‰^¨q‚çU58x@mĞ…sĞ +@.$AÙÈå~ÀD¢ÁŒ~ˆZND”ƒ‡q-d×À6¨Ìˆ¶|3§(+2óó‹<¯¢¢2$4˜UyÉ…Y	˜dPB €9} £'+r¹±x¼ IƒVã€'Ü!¡Á:ÈšY!˜—¡ëVØŠ	Î…<X‹M¼¡.EÅa‹XŠYAQUG¹@H“ ¨Ë áŞ„åu—0Cƒ:ğ‚îtĞzÄœ>xÙJhÀÓ$çáXÈ€µ°Ç“S 5¬’J©Él•á,EèK6€Â¬,D…Â‘àPûiÁÈHë=8Á-äĞà††Ø¸2Uõa¶¾xĞBCQgh <4Ğ—ó E/Ğ`Djx±@}ÈÁŠ”ÂyPÖa¶¾ ë68Ai÷Â@bCgËœê¸kX€ ‚‡úR/Ìfz¹.ÿÛ`3ÀàR@ñ*JhpBl…%úÂ@FxıÃIÔ
+ÔRæO^^Efhhğâ€ "!4ĞB–ãd@(4 ™”ºdua 7€‹WiGhğÃYLWph 	¡¾x’Xp„ş¦'j?\|‚ã[ˆÖøãÖà *4T©<r¹'4 _¹h‹¡‹–’©qË‚X§°}|ššxr¡JÓfeÔR¦@34 _Â€áAT/rjâªSÖ©ğ0ñ ×)B F´>,0€Ñ+´…ì(í1ô~®Ğà…÷cåÑBƒ34 ÑŞ@_ˆ(‹æ€x[{ƒá)& «‹5ø41C˜? Ã³0P¹/„½PÅlP–8áĞ  ¤¶(Ú2@,][¤ÅƒìBĞ˜bâÀÛ…–6p·CÄayÀÁÇÜ948`‘… ‘€¿eÎ)ê°¦¨jh¨¡õ÷¡@H}XŒ~
+f†-ääb…íoeb‚÷S ÙâCĞZknğ¢A°ç@kÁİ.h‰ÈÀÈˆT!’…  d…!·&Q¡¡)Æ¬ì®©¨2+¨3‹³!—¢ÀJh ru ÖaøâA>˜$°òãFY.õ!;ÊÆ7ĞrQ¤}oœˆ>,,Õ± ÷á\ÈéfÃÇÀˆeHoUQ˜L€’H¡¡€Ñ‡ Ts±"¼Ä­Æ$÷!;ê*CĞp'ÜË,øF¾ñ-CâªA5`Wë 2rÚ € ¢ş|
+ÓÀl¦ 
+  ÑĞ@ DõĞàÖº¡@TÜ[¹†  *‡ã`\éG<  ÑYid @£¡ h44@ †2  ÑĞ@ 4È  €FC Ğhh € d @£¡ h44@ †2  ÑĞ@ 4È  €FC (4äøù1VŠÀ	MM	~I68o8€ ††°¤ˆš°h™­$TTFNSBDS‚ø‡@ CC\’dEÅ„A<16M6Qqa~iÈÒc~p¨Hó‹¥…ÅDe5%dÊÅE MY	1QB»ˆ0#1C €€¡ÁÆ/bI‰±	‹kŠI±Éò³¡††¨”,4„%……¥äDø!!åhò‹²ÉIŠHğÃ´KJ³‰ŠÁĞ  P¹!,#ò'ÈË jJKkŠŠÃÓPPš_Zh  %~MiYM`B€r@ÊøÙD@T;H)ÛPÌX ©SÄùÙ ùì %4€å¨”(DŠ_J€9IxP$4€a**Õ>dC € 5¬”¸¬ØÛ È•CP {ORª^ZÎ†0QÈ@µÙĞ  `hˆˆhŠÈ‹HÊj«)iM	 /ÅÄ€*HDÀ’RPÀŠEX„°‰€Bäm–64e%¡Ú‡lh ¨†å•‘å~~ _Dù%ÅÁM1`Q)_edD%%ÀÍ	M9I~)Pm!’€p å†?0!Ú‡lh (§ˆ°hX±±¶(@€ 5_Ïœ”~Å    IEND®B`‚Ô !_3http://cocoadevcentral.com/images/global/m-file.pngOubplist00ÔjkX$versionX$objectsY$archiverT$top † ¯ #)*0123MNOPQRSTUVWXYZ[\]^_`adeU$nullİ	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€	€€€€€€€Ó$%&'(WNS.base[NS.relative€ €€_3http://cocoadevcentral.com/images/global/m-file.pngÒ+,-.Z$classnameX$classesUNSURL¢-/XNSObject#Aºw›Óìš ÈÓ456ALWNS.keysZNS.objectsª789:;<=>?@€	€
+€€€€€€€€ªBDEFGHIJK€€€€€€€€€€€VServer\Content-TypeWExpires]Last-ModifiedTEtagTDate]Accept-Ranges^Content-Length]Cache-ControlZConnection_>Apache/1.3.41 (Darwin) mod_ssl/2.8.31 OpenSSL/0.9.8g PHP/5.2.5Yimage/png_Tue, 27 Jan 2015 10:36:04 GMT_Wed, 19 Jan 2005 17:19:57 GMT_"1b4b89-942-41ee96bd"_Tue, 27 Jan 2015 09:36:04 GMTUbytesT2370\max-age=3600UcloseÒ+,bc\NSDictionary¢b/	BÒ+,fg_NSHTTPURLResponse£hi/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑlm_WebResourceResponse€    # - 2 7 Z ` { ~ ‚ … ˆ ‹  ’ ™ œ Ÿ ¢ ¥ ¨ ª ¬ ® ° ² ³ µ · ¹ » ½ ¿ Á È Ğ Ü Ş à â(17:CLNPW_juwy{}ƒ…‡‰”–˜šœ ¢¤¦¨ª±¾ÆÔÙŞìû	U_Ÿ·×İâïõú
+&*>L^aw             n              yO	B‰PNG
+
+   IHDR   0   0   `Ü	µ   gAMA  ÖØÔOX2   tEXtSoftware Adobe ImageReadyqÉe<   PLTEÕØÓ¨š¸ğîóÔÕĞğñïéëæıÿû²²²ÒÍÕ¸ŸÔ²™ËÙÍã±—Êj²···óöğºººáİæ°°°¢¢¢ùü÷ßÖèöøòÓÖĞÔÆäêæï†††©Ç]]]^-“¤¤¤1 w®’ÈL‰®®®µÎçéãŞàÛÛÜÚ½§Ô¨¨¨¦¦¦ÆÉÄ~R«™™™±•Ì‹e²K‡÷ø÷íéñ6 z«««Â¯Õ•••÷ööö÷ôÅÆÅPe5š„a§†_¯T2 y½e3šN‹/ uH†@: }şşşÉÉÉêêêÆÆÆáááäääåååøøøòòòæææĞĞĞÅÅÅÇÇÇçççıııÚÚÚóóóËËËÍÍÍúúúÈÈÈÜÜÜİİİ¡¡¡×××àààñññôôôØØØíííÔÔÔèèèÌÌÌÛÛÛÕÕÕßßßïïïÄÄÄûûûÎÎÎÙÙÙüüüÊÊÊÒÒÒµµµëëëéééÓÓÓğğğîîî¼¼¼ÖÖÖÂÂÂÃÃÃ   âââÁÁÁ¸¸¸¹¹¹ÀÀÀÿÿşıÿû´´´òóò½½½7 |ïëò÷úôúúøúûúóóò—tºøúøÊÊÉóóôÿÿıˆg««‘Çşşışÿüëèï’’’âáá«®«ÍÅØåääııüûøıßßİäÛêGƒîêñÿÿü@íğèc1™½½¼¡‚Á´ª½ˆj¨æçæíîëàáàÕÉßôó÷ôöôïïğô÷óoH˜ÙÓßüıüĞÀßÕØÎûúûááâÇÁÎâäàú÷û‘l·ÜİÜñòò×ÔÚÎÍÍÛİØ …»üûüÍÍÌÄÅÄÔÕÔ¦ÂîïîûüûÁ²ÎñôïrF£®”ÅúøúáÙé˜u»âÙí¹»¸æßíÛÜÜ€€€‘u¯üÿøÚÚÙÄ²×ÉÊÈb7‘¸¥ËW!Z&’èáï°“Ë~Y£êîçÖ×Öîéñooo¨’Á»¼»š{ºšy¼«’È¯”ÊÄ»ËÊÍÇĞÒÎÀ©ÕÎĞÎşÿıÎÁß¤ŠÁ§‹Åååä§ŒÅïğîgggĞÂà÷÷÷öööÿÿÿ6bÊÆ  ÈIDATxÚbøO"  R5 É ®!0¬Á’’rrâããâ²
+Skjüÿ{bh  ˜†ğøœ ?¿ÙIñq…‰ÙÑ'U´215 LC@TV|\HujbMzIAt”O5‡¶H1†€ ‚iø‘“•çš4?½$8:*¤I^Ÿ#]@ !4dÅWÔ–V¦]”Z“^]\«¢læ…¦ €âS3ı‚‚Â|“râ@¾¨©(ˆ-¥W‚æ*€ Bhˆó‹¯-mä¨l×â/åPñ©Ö·ø[‡ª €lˆğ
+Î‹MŒõªõÉköj©ŸU“ª €’²
+üı€ëïïÛà®’:y T®²ÏIƒ¿_PĞşşAş~@-q‰±fÊÊzí¥Ñˆ ¸ŸİAIQ±!üQ^Quy¯¢ê„9´•_ÈÊÊş¾¡Ó @~ş©™y“Bk£¢:3}j›C²KùÛå•¥A@Y/f@ !4ø'¥{§•{{—§•‰Œ0?_ßÂ¨WsT„µä´c 
+¡!¨<,,¤48½š£±¤“#;Ì¿!é@bpqllhHSi2Ô
+€ Bh+ó)nl¬ÍôÊ‰Ëò÷Í%Úô’hŸĞÒ4¨€ BhÈH+ËH¬NÌ.öJO,†”¿ŸoN\VjâÉàôæ2¨€ ‚kõ®JKËõÊæ¨ë,å>^Òä×="1;«Úª €Êr«@ -¢Ú‡£¥©±8"´Å7#è“`úÖÂ4 BCZreåæÜ ÜøàˆàìD¯Ï~5ó€rV|–L@ !4äFAje`2J>˜œ›[Ya çZ2B` ¡¡2%220¹®:M4²¿GTtKrreG¸À:2˜€ ‚kˆMş—’’yú\ùÙSéïóšß~¦>×Éş5+Ğ'¹±0 „Ğø÷ß¿+![¹÷÷Œ–)xÜÜ»f±[—‚Í†_AÉp „ªáß_Î?Î¦6ºªRbçMuy›+)Ø÷¤eDzÁ4 BCGÀß¿ÿşfì´s4ZÍöC‚É½k«ÎÕ»ËŸ8®H_Ù”Ó @OG5üM	f´s”³NM­ÛãfzáiŸø7…Bë³#3a ¡!0&à_ä¿–©r“­)™ò¶ı‹¼õVÁAª#9® €i	¨!ÙÏ3üÿeWÛ¢¾€íÌ.@‘‘mÓ@*‹¢a IC~~J‰WfùTÛ ã¿ÆK@RÀfö'{À4 ’†É1aY¾¬|
+¶şNìj˜‘’2C¨!%ğ0L@ !4D®–ÉEÿ'¸ÚÆLèkø÷¤Ád’€ BÒP´QUs×t°†Ş€> ¸§Xş[
+Ò`‰Ğ @Hş¯RèzyDÍPaÅ—31S¹9~ÿÿ÷ïÿŸ
+6Ì'#4 BCJ+Ÿ«ÂQN&×eš&b†
+®¿23ïs5uº”òîi€ BÒ`¼mÿ›W¸ó¨Jîû$óî÷¢kÜ2ïeîLş¦ €ş…ÏoUÑPû Ã¨ó±ñÈ hët\kÛ_„ „¤á¿çßÔÔìÚ’‚’ÌàÄŠè˜²Âà,_¿ª²œ´€€ÿğˆ „†¿ÿ=
+òš|Jk|£CCK*+òêòøÊ}Óı5 Š†˜lÿÌØ¿Â
+ÿ°ÿáù Eááù1H Eƒgx¾ŸwYnbZÌßp (‚cù@ƒĞ @0½ ås@~e@`8f}^QÕ @ğj·¢I^$!!A` ¾¾„E„Cs¡
+^±§Ed{áÅéAP… o:„ÇüÅŠ`ê ˆäÆ	@€ °OĞäÛhì°    IEND®B`‚Ô#$%_Ahttp://cocoadevcentral.com/images/articles/style-highway-sign.pngO…bplist00ÔjkX$versionX$objectsY$archiverT$top † ¯ #)*0123MNOPQRSTUVWXYZ[\]^_`adeU$nullİ	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€	€€€€€€€Ó$%&'(WNS.base[NS.relative€ €€_Ahttp://cocoadevcentral.com/images/articles/style-highway-sign.pngÒ+,-.Z$classnameX$classesUNSURL¢-/XNSObject#Aºw›)³á ÈÓ456ALWNS.keysZNS.objectsª789:;<=>?@€	€
+€€€€€€€€ªBDEFGHIJK€€€€€€€€€€€VServer\Content-TypeWExpires]Last-ModifiedTEtagTDate]Accept-Ranges^Content-Length]Cache-ControlZConnection_>Apache/1.3.41 (Darwin) mod_ssl/2.8.31 OpenSSL/0.9.8g PHP/5.2.5Yimage/png_Tue, 27 Jan 2015 10:36:04 GMT_Wed, 19 Jan 2005 17:19:56 GMT_"1b4ad9-378b-41ee96bc"_Tue, 27 Jan 2015 09:36:04 GMTUbytesU14219\max-age=3600UcloseÒ+,bc\NSDictionary¢b/7‹Ò+,fg_NSHTTPURLResponse£hi/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑlm_WebResourceResponse€    # - 2 7 Z ` { ~ ‚ … ˆ ‹  ’ ™ œ Ÿ ¢ ¥ ¨ ª ¬ ® ° ² ³ µ · ¹ » ½ ¿ Á È Ğ Ü Ş à â&+6?EHQZ\^emxƒ…‡‰‹‘“•—¢¤¦¨ª¬®°²´¶¸¿ÌÔâçìú	"cm­Ææìòÿ
+"6:N\nq‡             n              ‰O7‹‰PNG
+
+   IHDR     ¤   á<ğ   gAMA  ÖØÔOX2   tEXtSoftware Adobe ImageReadyqÉe<  7IDATxÚbüÿÿ?Ã(£€ @L£A0
+F‘  €FsË(Ä€ Í-£` h4·Œ‚Q@,  ÑÜ2
+F±  €FsË(Ä€ b‚Q0¤Áıû÷<xğîİ;ÿş}şü™ŸŸÿıû÷ÿş500PVVffffdd¤Š] Ä8:ß2
+?8şü{0 f	 )((f0 æ
+¬º8píÚ5___qqqVVVÊó@ æ–Q0XÀşıû•Ã‡€•ÃÇÙ H
+		¥À€<c;::eee988˜˜(êz ĞhnôÀjáÂ…¸²°Š riao[[[\\ĞNNNJj€ Í-£€‰OŸ>AšOôw°It•‡‡‡°°0Ùæ Ğh/P¿#áèè8¨\Ì¢Û·o722Ö-”t` h4·Œ2;†††CÈ/ZZZ/^¼ Ö-ÜÜÜÀC! 4š[F;8;Àü@£ıÁß¿_½z%//ôÙ¹ €FsËHïH¶Vñàúó‹Ÿ¾””—”'¨XIIéÊ•+_¿~ıóçÙ6ĞhníHjpòŞ!HÆøüıã“÷¾„`n	6‹·ÉáãÀW¾}ûöçÏŸ”ä€ >	²g$|úñáú³K@Æ)p¸Ê>ıøxıÙE’Ìæ™éq«5%õq)HJJŠ‹‹v`DEEÉëèĞhİ2Ú‘  Ö	OŞ?üË'ï’@H]A-+bf¹í/¿‰«†v]~ıú$É¶ €FsËhG‚Ê‰§à< ®1.‚/}úşNÕÔ÷­›K:Cç`•åååæ–ß¿39) €FsËhG‚ú‰{®mÆ%,’ ı`	Eá 4š[hØ‘Z3TïHŒã¿ f`¬£d?~ü ¤1@£¹e´#A«Ä@'8r‹„„…u@ æ–ÑÄpÀ" «8°nö[ÈÎ- 4‚rËhGb„ `mé¢å‡)®¬¬l& ë²[b 4ÜrËhGbà11²ë€ z¹e´#1
+U¶sj0Å/^lnnNvİ@ƒ4·Œv$F80W²2ƒtÖ%HËæÊK`Z6Ã ó-ÿÿÿ'c: €2·Œ„<KŒäÖÌ /#4¥ô«}z@S%›™dt†Î	2EV'>· MÆ%ÅÊÊ
+#o‚ €h[FBGÒ·íH`Àt/#¨ ¬%ÊW§ ¹·;~BÄ×]0óÀ¨’U€T,qÌ”ìH*kğTÔâââÀÜBv× €¨[FHGÒ·íH `”ÇŸ”*HfhİR‚œYb÷µM{®n‚BÚ]®ÚĞá¬¬E¡dWÈÀœ†uµ°FIn ’sËúõëùøø€™aøu$à}ëÑZ~ÀÚ’œ·2P3ËO²†0$·hJê•¹ğeÂ¡³ı]„¾4l›
+0: ²Õ¾=“ö´ +2âXÀA,EŠŠŠ”ä€ "!·ìÛ·ïÑ£GC®®íHàÏ|œhmÈ<—Zm_´ÕïNnİ\‚œ"±Nk Ï°Ôk&}„—ı@ì¢ 3dö“ÜB[i‰mŸ»ÒŸfª´rüøÌ'dO¹ Q¹X­[·NYYÙÉÉi´#1l2	0K w¦xc	ØUÀÜ(’`O 24q`7OÑó	6³n®dT™hæ` f6` t¤b‡ØT“¹8´Æ§¾z¨è¿‰fÄ·É kİ¢««{éÒ%²ë€ "*·œ;wNXX×‰€£‰!€é{IÚ.´–=0çhJéÅÌrƒ,L„BZY	6¹a+`©Æ†Nkàß±ˆV`Ák¤òÕ©ûËí€zãmrö\EY8ìÌ Ğ‘ÀŸëR©…‚ã&íi¦Üï”, Â¹h.°Ÿœœ<Ú‘6 ØÂ$q`El_Kq`(,İ¹¢|u
+ZôÆı„m	1ÛâÁYT…+©Ì0— [}°ú1üÌf@´Ò#	 KR¬âNPáÜrçÎccãÑÄ°.Ú~Ò°;dş1ïnÊ;©a@í1X®Èu©Í'bH|AæC`åÚ%br<ZyÁùy¢X ³+ĞFÌZØŠş.ƒamÅO?H(.?ã([á”@’Œ	J€ b!Øc9}útttôhGbØ -X‡ØŸFn/ÁG«€¥><š[ÿ šÇ·ŞÑ'µ¶—AÍTŞ0g­€ç7ˆ °á‡Ök&ÌşğwãX« ûúäMPÁf???‘
+`©:G;C E°ó I£àîøA´d
+9QkGk­u4’%à5¤>f9`ŸR­Á‘++`±tÚ\©^Còòòµ•dœß@räÌ2‚¦ =ƒ\G‚¡Ò×ÇÕú…‹Ë>Hß˜jÑ:ú|œ“&¬úˆÄş€Ö~f?`úvıÍH.5n¬âhQò~ÿşì>@ n‰<eØö%©–Ò ²©C·—lC;0Z~Èe¼¯XÀY‚³És©ååäw…M¶
+È˜0éó'0oLŞÓì…#g 3ĞJ[`¦¢0„OâDÖÔÔÖ-äM¹ Qí¶>àš‘¶¾†SVF'?F^gèÈ”°% »„œ'"}V~èæø9àu¾±è²!»À:>l>Ñ’´İğó ²kÏ.<!EìBÆà€*ÁdJ¿ ÜÂÈÈhmm}áÂ\	¹$Ö!0ÊJ^`’h ³ >Ø‘ÉğŞ'0ÅÀ+È$4‘c¦ƒ ‹m`éëRÃ ]í÷ùÇø¬<P
+­ùÏN90p®ƒÇg?ƒó0Üà+è
+P‰# ¬|à=õ˜Y®ô÷&|Å{üø1dİ>©fÜÂÄÄ„çˆåë¨õé`«"x9 ã?fJv{®VïAj ;sQ(xx ÜéeBFTC jô›d4² 	Ş>¢ Xº½™ÈGNRÀ¬/şNçİáÁ×Ÿ!âyı « øl	¤ég ®O?>ˆÑVÜÀ°•t÷î]È2©fÜÂÌÌÌÂÂòäÉ‚½·À2W²‡”dÀ’=ÀV5¤àDY‹C!3Œ"œàe$¼ìD®‘:CgCòlÆÀÖ°í
+^T©.v_İ„\ö‘Ú^
+„˜îPPPX³f™™"á–0·ğòòÿÃ;ÀH…'\m¿ë\X"ÖfˆTŸö¶µ€™²6	<yì·çê&ä -_øà&¤X‚¯Ñ€ôl`aŒkÒPÉòá:ƒ«ÕÌ-_¾|œ*Fê%@ îå«—×¯_c•’¡^óREH£Ş. LÜÈÍbø@Èà=òR<˜{&Ûh$°ø„d  uÀÜï¹ó«¶<|‘… #šRz@5Õ¾=L7öFgZu÷wr 2¤£LŞÄ›	@„¯xv]¸¸¸ğô˜‰ìH€ó¢T&ı³/owü„Û[½ÀæP¢‚ª}z6åêÅ4Ø;Gëƒb6± }t$«÷\Û©y\‘–šC2 ²^H@ÃóÌgp·Ò«çX`¿h4E1CQsâ’’““#oÊ €ˆÊ-Ÿ>}Â%Ÿ¢Â€)˜èùˆ©S Ò¥6ŸëM`ºõ5N†$kH‡ÓLèXF‚t.!oøØ.P07B¬†ôïA1ğrWxTá\ÛË	qX2 ¼¬^@éa1úäi~ùÿÿşÿe ’ƒéŞ²‘ˆpnVU8+I=’r9°1Iâh)¾°Øv¢ÖÍ%êlk¹hû!7ÏàÅ<ÄvĞêL˜J\n€'nHŞ`€íhupa]Hşç[¸“ ¹º|u*ryíú(ÀÌ*fŠvÓãVó0òÿıñÿß/†ÿÀy†¾ ×œ˜ü,’ Â¹Ø"©m‡€·ËÍFí±Ø#@!¦½¾€Ï{Â×À2€—²B40¹C’,8Å_‚×È)>f–+©V°4³]İIô¦$K ï¯€g¸!¼à*è`†+ãåm‰áË-y®µšÒúËrwsÿøûíÿßŸÿş@†Áùø Óù¤Ö- DTİ¢««{àÀ½s{â³8¼® Ö0hÇØÀ“;2 ¦lx·iÀ’‹ [ê æÃ‡!uÈDıfƒ<µÉ¥ğ
+‡¶hÍÁp÷ ›ˆ$®‰°£¨Š-YıÄ9?ÿÿûáß¯ÿÀ†×°///y-1€ "ªß9½…r ,Â!H°Î…7áĞ6	ÓX[j­s&Î Ó‘ğš
+ØeÊs©"`« ˜E‘sr.…W8h9¨<]XÙl"«)ãq¬3t£ Ò±V,p®‡©_oÚÜ¿_şÿıÁğÿ÷zöapåIIIòr@ 5‚ÌÊÊúâÅƒ]zÄX_³]¾:Øç†t` óh›„ûğŠëjı ™'†/Ö@®¦ îO•@–ÍÂ³$‰Cr|ø Ë%‘MÍdäsEhÅáNqŸ¾|h\VÌğ‘‰‰‘XJ3ÒÜ-¸š ÀôLÆâ€ "jU%>/Qç¿@Q³§€pİ¢Cé ÀûÀH¼MZ×Ö]É Mfà	<+¸àË1à"™‹CÑ†FÎ2j:ôX0…Sıò®>¼¸æØbFğ„ +=2®Adƒ‰'’qÄ+@ Î-éüwïŞaï0q»WŞÊØæHGŠ@ğ²Ò(á¦cˆ·áÇ…@ÚNúá:l6PP„ÌÀZÏVÍÑ‰ExLÈ*æN-f`üÏL ,tªa°Èt>©ûˆ¨ºØuÁU·¹b
+^®C–c•¯NE;s>a>Ha&òV»¯nB®Ê¢g¹"WÈ­&ÊwGŒrÀ?ì4&õ^½ñú«Kÿÿ3sÑ<ÃàIêêêğ›€É›HˆØ–ñ&âĞÁ[‚à
+ÈÚUx_²È(‚¶ÎX{ ·—F÷3	@CØrlîcûZ³‡«b ~nµÍ{‚ë\n¼¼ÄÀôŸ™cÀj`&ï	#~w>@ [·àÙolNÄ¡Î˜Wj@V†«ĞÂGp3Ì¡Sm4eS’%P÷–´n)öÑ«Æ°$‚FõÜRã×CP0Ã4í1KWıúØ•eFVæäƒd‘'''Ãb Dln¡ğ4W`~ˆ™åŠÖ‘İÊO€I?ˆRBa^Ş€H—üğ^%l£¯ò¡aÔuĞD®‚d˜à—oß?22ıg`bdb¤U†Áµ©D\\œŒ	J€ "6·ÈËË_¸pëq•øöíH‘%ĞÂ
+˜!ëÜĞº‚™‹C1›£ğM
+à²	~0d
+ĞL`LANW¡ş"·¹x{,h@[Imã×R`›ÔÏµÇ˜¨¸šëÀÎ7¶±ı…û÷ïã(ÃFS9Ù‰kÏ/Â—,@¶ğu:˜QNôz±òé±«AUÄ! ±Dğ>äığ¥Ö¼àÅ¯´êéıg2‰•"-j+ê÷gÍ-š‘¬Y€Y…‰\»0Ñ)·wc+@ [·°²²¾yóWq8šˆìH k	øŞ5´Z¹Š¼‘¥³!Ê«È^ `ÙÃóùûˆÉÈ…ü€SWĞ8~ø6Èúªe–ÿ†Âpp'Ğ¢ï¢YÉàLj12Ò¯ÇÿáÃRë€ "*·@¦\pŒğÜ>l[Ò•„Œæ!/ @i²JêÁ7‹#w$ÀÇİ×d.B4« #‡È½>˜8d½Ü‡İ×6Áò?èøŒ´‘Ş½š¯Í¨R±İcÁša]>¸öä"H:£ú4?®[-ZDê”@ ›[€1\»\øFêj\m?ä‹ `ò|	¸ °BXwv1°–Ø_~´ó¶.W¯Í^xÒ‡g$¬§#Ÿöt$sB. Ú1EÀŠÅ­–&æÏ½VrñÆëKL¬ÿXèU½@vP’Ô bGš™Á G‘I—#À[ğşCB’qÀæ€‘“,üìwH•ò	|:dÅ'°	ì¬C*™…G¦À“&°°G^ÌÀÚ†¶íª´Ö0 :üŞFHƒ
+‘àäÂı€Y%f–+¼—o“CÜòŸ!ôŠåÊí‹Ûl<zñ °vüòAF6Fff.FĞÖ±ÿTX<7¶òòòBö?å@Äæ&0¨¤	G`uíÉ¥kO.ş–>Ì¹hj`Í-´³`§¥À7ê`MLÍ›ğK®!	<ëqk‚dHí„™£Ğ
+/Èò9ØbÓ‹hçxP^‚å“^±ÈJÊ/ß±èÉ›LÀ|ÂÅÈÄÎÀÄÎÈÄÁÀY<FU€gZ‰ŸŸŸÔıÆ D¬ë€	J¬[ç©˜UºÂæt†Ïáfàÿóåÿßïÿÿıfø? ;Wáó¤Ã±N^9 §rxQ6‡íÏAK÷˜¾¡uK‰C§a.Åz°<¤ïúï†å`³4$`ı9ïÀäˆ×Ğõ(QqoV“D•O_	Ì{òó”'Ö1²0 s#1°p32³Ñ`ù?Îö-Ç?HjŒ±Nv] ²bïºĞèH‡ÿ¼ìÓãW™€¢ÖLÁîï—ÿÿ~0üÿóŸ˜mÿQt8ı#²vãÚJ@°_‡h8z„™	9 kCNô¨›ypå(¬…ÄL`V/àısTM~òîá‚C“OŞ=xòÎ¡¯ÿ?°ğ2<ÿş0¹/„ Æ8`æ`}©[@3õÚH§gàò©„„©u@ ‘Ğoæ–(((ĞiXì?ƒ´€<0«Àãşß/†¿ßeÏ`àBÃ‚)tPıÔÓFşƒ7Šñ‚¦·´dÀ÷.(ÛELpE0XiĞ®ƒ%ŒÙ4b ï‚†÷ò¬s'ïiAî{ [Jğƒ6õ	¢µûØø\$rá5Ø`Ÿ&õ6Æ ?Šr 
+4`«Ø ‚D
+œ~|hîîÉÉ®¹FÃ\âçîœô‰ X ¼iıûocX± »+$"	ı==½û÷ïcÍ-Ô?Òáƒ†„şÒÌ]ÈgÊÈË33;¸–øÜHAóÄ5Wµmd„ä¥@çKƒœ…*ö¥~>ıgbµ˜!y…è6 ÚÆfÜæXÓ4èhLØí%{®n†pÉG&Ã3òõq®Z~ğ‘P`ÂÕßX{v¡Õ<´]BîC‚Ö­°0şGŠ»I;šCmbñŸá7{Ë¤ÿ¿şÿÿÍøŸ‚œ‚#“À¹À wÕÆr÷²®®îÅ‹ÿ‚‘V	¹X½|ø€=›RùH‡ÿàf}8úZYqyPÛŒS@OÕ X}kËêóq&+€yè -i’ûN¢z 0¾ÙÀe$Ñ‘a‚Üñ„¿i„uá)ä Aø…×Àê˜[Ğ2d¨˜9Í	`åÌ3xZP³(2C¬àÕ8Ã—ß×œXœäˆ¯zÑQÍÛ~ııØf€Œ†1’›C0ú±ÿñ)†R¯= rãÃ©6ˆn;Uûö$Øb	hk}û—ÛS1¢y˜ş~ÿÏÈÊøŸã?#3	#ıÀt	¿dIÚ.Pgàê&`6VOa×1à¸Q~6¬8·@ºømmÀÂ˜÷&ƒµcæ®½È†AàlÃÂ°ààdü¹¬tìv]Ø³ùnS\`UìV1`› $ãÆV€ "6·@&(i9jîÓw†ÍvÕñ£O,k$Ğ)$É9O±|uÊ¦üSË©Õ|=rnA3„§~Pı°úxŠæÜ(¸JjÎ²`æabxúñáµ'!]D<ÕËÎ³› Gı'6“à«F°rq˜LÆ­ DÂ-•À.ÑóçÏq¨R¡OÏ/?=a5M£Ñ[®ÀØ:³é?YG“»c§zµO‹¶/||(ˆ|„ °¢ fGâ?¶Ô€Z®–üÎ0Àªn†<x|rÔ##æ°®j„˜L{ògØ\"éÆV€ b!%‰¼±•Œt êÓgì"æœXZØNŞäxËt
+ÃjøLmºú4¸Ç mÜ£–à¦#$i2ĞwI"QÕ¡~°iİ³¬éÿ_FhİòŸPÔCYxr‹¸¸8I{Â ˆ„Ül‰½}ûg×…ì3çÿúÊÕ~=ôÏ*Vúö+šAk”­¹xJõËDÿCGù¤@sóZÒúÁäÔóäí`Sçä­C×^-n`T€zÛƒ#ÏãŒ_>0€G2à¹…‘¬¶¶L‚Ì–YXS©"	¹ØÑÇs‘™”ÿ@tå¹ÕL”B¦,ÿı6‹Ğ€3	0‡›ÄûoøF¨aÃâOŞ>\slÑ¼}“?ÿøÈ;y†Û¯Ü¹¯?!‘Öÿ#©Ú¹şô’¹
+–Î‚¢¢"I¹ €H«[ğLPò’^3ğ±ƒnDÌÓĞQÑg f`K <£Ï8àÙ|Øvk-ş³ Ğ€Œ°|omˆe\ñÜä“w1±wº³üR:¢lÏ3ãé®Z`rñ4´`>!~O@ ‘°(2A	Ì-XeµHD·z ³
+xÁÒpõÂ0àW&ügàe˜»ziÆn’²
+"ÏˆÈ¯,ßhûûÓÿ¿ßşÿûùÿÿßõÔÂ÷/½p:‘Ïˆm ë?z»*†M“­®ÀÚNÜ9ˆ}˜GW—¤º €HË-ÄŸ%CÈœ:ÿà d!'®0ğW‹ügĞrP>tŞŸ97Ø,öÏçÿÿ¾Ã(?ıg ˜í¹…‘™4ÓÅ¿ı4ôkıG^ÇôúœIp¶ë IKÅ ˆ´ÜÂÊÊŠëÆV3Ò‘?ıøĞ¼¶ÄªLuÕÁE©²òŞË æ^¥é»¨5tŞ˜Ø+É-ÿrJ7}Ï´GNÄ®Ú~ø‡m–o_Ä®X˜àû/ş]üG­Fş£æÿèŠ¯=Å>şìS ÛJÄˆ@¤ ».Ô¼±¼¢ñÙ—‡%óSúÖ4×†9Ä‘gÒ±K ªöÊİ‹¿|xüòá£—€1a¥k_[G 1Æ- É*ÿèÂ7 ¥À¬BÅñ@ &æÍ®q­êe­Q GmñÁ6öŠíAncå¡t/ˆê½ü'^ñçoqå’nl ÒZVxnl%ò°}ôAFfvĞ®†çßÏ…åG|y¦k~0î¯Ş»øñÛ‡Oß>s¤d‚nc€ÍB01Ø˜8îè+ëï8³	ÔÄÿFz‹ı	R}BXLXhØŸºğ#h	8pè‘I`\iyü­Ê£ç½xrô(Ã0Âêâ»ìD2™ß>ÀåÈ¡•DŞØ
+@¤å<7¶’sNxe0Ã0+f`¼şşãañ¼”¾µøòÌ¶#¯>¸ÚmÇJ,üà#©@Œğş"8ôÉ…¡–`ó4Ùò4ˆLõm®Ä´Á`÷P„;Ç˜zr…(«ü§êÖTîŒ–XWÄüftÎkfF6&`~feDl™ÄŸIHÉ!È"OŞâœC¾±•`n &Rs®eÈäír,ùf­fâddæfí(úñ°hnŠy–ê±+X†2øyY™9ÁÛîøÙøYÁÈfåƒlÄÂ”eæ$œ@tUôÿÃû-to‰¹jùÒhNÖÓÊ´ZtxpŒzDú…u0Ğdşşı•Û!ı{P¤ƒ‹<F´äN°ËƒûŸiŞæ?6Åàû÷ïÄ‹i¹˜ùpÕ-àEµdÆ<Ï°ƒN3 ¦uV~†¿†wº†6¹¿Š’gä$@]C`™ÄÊ0Ì¼ ÄÄÊ?Lœ Í*PÄÎpıå%‚6óñ`_E—f˜ÍÖòóhËëÿıÅ Ê3ÿÈİ˜1õw&rÿ1`İL‚¶ŞÈŞ%j À·LİeGsÛ´L‚Ãa'nc_§©©Iü­ DrKŒ……X½Px,2Î<Ã]bÄÌ
+Ç¬ÿO?>Öáj®jWTk¥cÎ-òà ±0Âº²ğ?ÃçŸ„×hAG¢—´Q‹¸ËÇ/¶Ùº fƒp7Ğ6]Â?t7õŸÿl¤tÉÈZçjÚhtìüAĞù”à¸c o” ¯7BÌ|?>Yh,°ø €HÎ-ÖÖÖ.\ppÀÒÆ<×‡’<ª Y@³ìLìÿÏ<9Ñí
+¬ß‹Bjùùà#%`A\„ĞGa»óIÛ“DqİBLÛµkAÓÌµ“>ÿøÀ¬NY@ï[ß¼¶y¶D©£¤üÆ!Âëá	uÙI§71ñ
+*ÿ#”[˜şS9“àğÅµ'-Ô°´ÅÄÄ?~Lä 2@ ‘ÜoÁ³'Œºõ¨ËÎ>5X_ƒº4§
+ks·gI7Áõ§D4Æ¸ùÁcbÿÿÿ§kõB„]]ó›º6}şùèe`•™ñ+óÇä~Â'E€™˜Ë–ñ·µş#-Ù"ÔI@ê` N—ï\„nÄgB*èpÌ¥ßÖÂÚb„Ë~ú†óJø‰•]@$÷[€-1\”d"®g˜ı`ÿ„E€ñÅïG¬¼ .
+°pbÀ¿Š¸y`£ûD0`Åô>3°‡ÆÇÈ* D¬| ÁŒ—¿îº@`ß˜œ„Î>.‘]öÿ8¹8gÙ‰È-À¶4(«0#µHí²cãşÇ›Õq‹AÃ‡d‚. Òrä@d\”¼4:lÒâbÃÎÌ6œ#Û	ÔÂìÛ$²ñÿÿÀ‹á;ºsäwVĞÉt 1¯Áç	Ø÷G€™H‰›œ.;y‹µ…!?xd…3ÅS©Áš£¼Á™['(ñ» €H>êX½àº±U†¦Ç‡C{2 <N!b-#8{4ØÚÀ~ ò	JP/@‹	ğ`+x"²•…‘™ğ	5e
+ÃÓËFÑ
+`üÕjµCäŠÆ«Ofc´Å¬„«â3	îÇo8‡|¾~ı
+Ÿ Äïr€ "9· Ó;;;V)z¶Ù'ÈÄÀ@ÌrtF†kÄlPCZDgğonecXû	¥Ù	$xğŸŠ>hë°Äwôÿı#½ùšCğf0øÈïÜçp3ğ¿?`ôuïÂ°ÿ$fuäÊóÚcœ)A]]R·Ì- DNİ‚ë°}ğÅ#ƒªéÿ™ˆ¾ÚÊúĞ2˜ÎK÷Ç„5°mĞ  û‘"©ÕÖbÀ¾0"{í1‘kC{ğY¡ œÌğúÕ¾…5¿àw9@ ‘œ[˜˜˜pÕ-„·4¶¦¤(ƒéY½0²6ZÈÖ)ş¡4ÃHë²3¾0ş?ÃÉ[	?Èk+éƒBû7b€›”.;…§ò<q{m,$$?Ë¿ËˆœÜBp9Í Ê-ˆÊ-([ÃÿÓ-³1|Âê$bÎÇàçÀ^¸Òfa<Üc»Î¯ËÍ‡Ìœ2@ªÒºìDõÁˆP>>>"á rZbzzzÀ*?N{P ğªM‚©
+´ßx@ÆÄ!ÃáHğğÊJ6äQQB5§œ¸Úh©]v2kÁNB£Û‘q2Â
+ÿ~‚æ@În'£­EDWÙ×ß`ïPñòòBnl%X· 9u°æ*u‘-D@2 éSÁË`x+Ì|J(·ÈŠËÿ‡­Tøu5ÂğŸÈŞò¸±ëÂ¦OßR-Ù½ÿ~ÿe˜?D8Œãİ¸‘%%%‰\ü@äÔ-¬¬¬/^¼°a1ª7w G%!Ç½À5‚9v>¼ôEnu¬6ù¸ÀY©?MR—ĞĞÖéFğĞc^6şáÎñÿ@ë>ÿ#Æ¸Iê²“8Şg:˜‰©[ ˆœ«e€†ƒƒchäœ»LÑ%ìT1zvô?Z÷	l…Ü)ğ£gE0³ö#üE½¦æ?Æÿ‡.¡èßÔŒ™:=xôüÁm‡7vÎkêšßtåÎP6Öœ¾>eÕ¡ñîk°—Áë×¯!¹× €H>•2k‚rŞØúùÇGb<Ç¯‚1
+=´‡k+ÁCÃÀ¾eˆ˜çÓı‡áD¹[6c rúâ`âV42‚WšÍNÑ”Ô?röÀÿß—n]üôùÔ×L°E€LŒLlŒğğşÿŸ(— sIÛœŒ;'@¦ó	ˆ@äœáìºàª[ètc+iƒÈª¶X`'ñÑ±÷¶è)ŞÜšaDkê 9ï¡YskCØ2è
+ëÿèë²%5’ÆC=xØ{Ù~r#è.7ĞÅÿYxá›À¡¹rYx‹øF
+süÇ¯ãSQWW‡tô]<÷«9¹ØÀ[I¬	‰ºÕDNB¥©CûLBä¸btûJCB}$æåÿğî89ş§R&!´¼’À‡.Àjlx½ÃÈ]µ„t3#U«œ•'®
+<AIğøp€ "'Ñ³
+[©pŞ>uûD´Ä Ò*‡`(``8qçáq­¿ÿşÂfå‰XW‹´!]Ø°­Æ#d!kaÁ§”0s‚ö\@h‘(dÙ±À**,Q#Ø»ú{mÌÉÉIÌ°@ ‘™[h²w’6àúÓ‹$%èÿ´È$ÑO|æ”“‡%wôğ”ˆÜÂÏ% ]Xùûnuê.ŒGáÂÏÿgF,…nàÃuw1%KÔˆïÆuß²¸¸8¤nÁŸ[ ˆÌÜ"//áÂì])}†¡¬!#Èÿ¨±TŒÄ‰‚}èxæë|›œ]2H[’ÙşÑ|a<få‰>Áˆ´3“P²DˆñîO8v.àı<	@d +((à:ü…cU; )sÂûŸA“˜“Ê”W#ø£ˆuŸğ:tŒv}ù¿ ã¯=!b¾ m1ÍV4âWL³%jÇ»¯>Ä^6)++Ãû-x €Ècee}óæVÙÁ5åBô1:Êú7^^‚Ö-äuÙÉØËşˆuŸÏÀ«ªÌí€ŞÑ’ÑÛy~h"Ÿ‘ˆj32’ÜeÇ?&FõëVˆí²S8Ş
+€¥?Áº €È©[ S.¸†Û%°•LÌ%ôˆ×ÄåJÖöÁš|ÿÀ=ïÇ¯	ä–Ïø}ÓÏ<[ÿëÑ‚_+Šw¯(Úè˜÷ğáƒ¿ßÿÿûõÿøÍƒ«¦ÿ“6T¬Fh¶«Œäjä?á>ØñkØƒËÁÁáÑ£G7èy¹ÿ.—Á>'fXLÀğeç1 ¥iy`™Ì**v+Ğ2d”(¿7éÏWĞ¦k&âºXÿPÆÄñTT­v(¼n…fÁ`À6dO5 DæÌ`0$FÁƒÈD,&	=lÿ?Ş›(L.Á¦±]‘s(ñËÑŸ:Ì'ÿY‰DÖQ…íuƒÜŞÌŒÍ[ÿ)(èÙÖÂŸCˆÈêWîãleğòòBÖíã™r 2'™À`8"ƒÆ¡%1|ò›Ê­ÿkN,"Jü’Óššgd‚œNÏH0·@æ7‘—!ÿg&]vbFçĞÆ»ñ!òóó¼Ë €È¯[ğLP’c+½Àã [+>}ùpå.è\•£—}şöz /|Ö…6­¦UÅZÒzZ²äŒ³/ßºèÑóÀŠ…v¨Åg"ªM`#óÙç‡Ğ³,&ª]v¢[ŒÀ¢¬(–®50ÇÜå@dæ`×EPPg9Í1˜ÖV2‚®¨oZSråÖ…¿ßœ=È ¿q¾ì<qÆÂê	 ˆE•4hu|şñ1¼Ëåhçm>.Ò†Ú?~ùP5±ˆrÂ:;èä$F&|‡3 72Ÿ}zÀğÚÑgÂâ)ú`döÙhv+Á¬O^?Àš[	öòˆüºÏ­ƒpyÁ¡É¿ıÿû”%À‹2‘×)1²@ó°Àf`&ê.²×ö-úôócX»ËªŠ= ÕœDƒ+&àe#¨‡mÑÈüí çáÑeÿOz‡+ V,llløë€ "¿ß‚çÆVA…ÁÕğbŸÜÇºì…UŒ@H „X —X0sƒõÃ½l‰
+{Ù §o^q©aI1ñ>xôü!èÎ /8@tç	ØÿqÎ ºğ¥b¡øIï¦Ï,;öKÀÉïÆSvà(¡ 7¶âï· Ù¹X½àšÎçT»\ÀõÿLĞm»£ÍZ2Âx˜WQÓ ÕYnìîkÉé§xæã‰ªş"HÕÊÏlŒĞ¡-"—ş¯|ïÁü÷Ÿ‘‰ÆãéW^“ Û`Úò8{Œs@ ‘_·à9>|PìrÁ8ˆrÍ%hÑ+ò¡LHõ3b¨´YÛ=ß™¡ieñÎ3›zåÈ¹ƒÛlŸÌ*hGÚìºè¨Aotúmu•+O*]·BÂ5R@’Î²ÉÀÀàÆø§\ ˆÌÜ™ ddddT€à‰ñ¨UÊ,ÚéÓê`€l„bc,š›ŒkñtÎiei6ØPŠo.¬„œ;Œáï¦âÈ/³ìTlkáaöqiş8s‹€€ °bö[ğtôˆü9–çÏŸc•¢÷åĞœ(€\—ùå÷Ç”	!¸V’Á²­‹?
+_µ	¹Y€aòã7„ÎI’¶YƒüËiIt8†:g·R R¼òú3çâWl.á?† €XÈ¶X±ğóód52ô'
+ ·:?ûô0¹/duí,£ÆŸ?€*ptÒ>hÔùÎğ1Y„r‹¤ü¤CÉşÿg i¿1}fÙ©2®…ÙK‘UĞV u±£qqqü{Â ˆüÜl‰½}û—¬´ <1[|)Í$ä-ÖL fĞ­ˆ…Ó“1¿+&=~ù€¶Ù~pøÿÿ¤%,`cìËßÕœÄì7]v f>.`fÄZjÙÁI5êòåËzzzxZb D~nvôq]äD¦jnÆ°ÿêc‹,5íÃâG§¯œ»Ğ4‰²ÊfÚ‰1‡›=ğñË‡+·@+.ß¾šœù‡¨å,;`©eÉü\|Üüq-ˆ µÀ…DEEñ« ŠêÈ 2Ö]Ç¼”¶?|×öa‘pÍJ¦mEèˆbçì&`†™4ÀÈŠó¦l`Òï[×ìÛüûşÿâõ‹?}€›	½°”Í@m9f¤±r†Á5ËÎÇ- ÉVà< ª+äá‚t K—.fccvÈq_Eu[µ$õ÷\İDóL2\&
+ p€	:´ÅegÇ`B¹rûâò!×d³ƒ'‹qô7ú74ÿûùÿïĞd%/lêzñâP"&FF&x¨À,;¤#Áª@‰TWğEˆéTĞ8p Ø¦g>>>\ëëˆ¢^>Õnlykûpe˜Ï¿?&÷¯©ÙS3½<Æ Í*ÌZÏj§13‚¾r(‡1!ÆÍÁyæÿÚVZò¨	Mò;ôÀ¿¡¡ASSSLLLPP““×úz€ ¢¨%†çÆV3b‘‡]—¼¬şŞßÏŸ^rÉµÔäá£‡ÌŒ5”ĞéHFœåd©Û`ÿgD«vĞ‡¨äk`”Àƒ‹tù*w$è €ıˆ™3g®_¿^CCCVVVNNØæ\-1€ ¢¨nÁscëí²é0ÜêAÅ?ÃÓ˜8AırpŸr”#Î=jÈzQ‚è?1Õ8®Ê˜ }m9}`ÿAVØˆ’‡E ¹FX¾¿}ûöãÇ?Ö*
+
+
+zzzÀ|¢®®$p<-&€ b¡Äz`õòúõk¬Rè·¨.;e•'#x(°0ïú‚­‰f j÷ìÒÎn•åĞÜ%R]ÁlAÅ‡b~ Öƒ»nŞ¼ùãÇ§OŸ¾ÿ˜1€9Ø¸¶²ØÙÙ!m"V0°°° vT$$$€yFQQQRR’››Ï6G€ ¢(· ÍåââÂ*='iDvÙ)¯<ÁıØšeFlk=I©<!•¨½$ê[[hØÁQC1K<  ãìÙ³ÀtëÖ­_¿~={ö˜U€	RTT2Z9h˜%DDD€Ù È€g  f`o‡‡X™ˆ0«à¿÷ €(Í-¸–!´ tÊevÙ)­<`;Õˆöµ¥†=¤®Q f-ÈŒ„†=ÃĞÀ*â<|JBçÏŸgccfŒß¿:°–€g	H6 V@2şaCÀ\É@"Ñ‘÷À<$\‚WD¥-1\ux:qXÖHë²Ó òäãĞ’µoµä@“t F”¸#!7|:Àö'$c S0°KŒœ%€E³f y ® à‰@ª "™  Jë M¸&(±,†a]v2|-#ªàí%-YDÆö	HÂö%à	RÀó Z®€×ÈY9K@vaAN\s!Täy €(Í-x&(Í•í¡Gªà.;V/Cò '¿–¢½¤%«7Â;ö$c IH–€4«Ğ2Z–@Î6ö’ ¥¹ß%ÆÁ\#ªËn¡n©+@í%Nh{ÉBİah:t$X‘ ÜÌÊ+è¿½
+ €(í· ıƒëÆVĞ ò°î²«ÈAGZ2zĞö’0¸‡-;Ú‘ §#¯à\F0<á@åˆÇ899±"s
+Ÿés'™\9€g$Ô¡	 ¿Àc´#1ğ	:€ b¡P?]. s’M?’.;$@«…ÿĞF°ÆíHò@ Qš[ğÜØ*#$ÏÇ!€r§û€vÙ-Ô`	aPGÒ^²PíHá@ Q¡nÁsØ¾«®ïÚS‹éÖÖâæ}xµ Ì®Ğ„ÌhGbxv$è ˆ
+u0pÉÖôìº´	T½P¯ËÉ jAT-hÊèÃ2ÆhGbÄu$è ˆ
+¹Ïz`ƒgYÎîŒ9!ĞI}¢«`m êHpB«sUXG‚s´#1Ú‘0 @ŒÿÿStÀ0Ö¯]»Œu¬” ¬[æ˜¼öä"´<É jAHŞˆ‚Ô#¡#ÖşíH~ @”æ–?ş ËÈ{÷îáÉ-p Ì-Oß>äå)	ÌVĞhGbH€ ¢B/¸&(1GÉ€h´#1Ú‘¢  €X(7¸‘G;£‰á ˆÒÜÙo|ıúõ€€€¡Ş‘‘ø@ QÚouâ?}Úºu+°è%¦ë2Ú‘C rË·oß=z´`Á‚ÁĞ‘@ëŒv$Fµ @ Q!· 6/_¾<yòä™3gÚÛÛéÓ‘@+øG;£€  €¨[€& Kz`ßàøñã§OŸÅÕ$ƒd‰Ñ‰Q0D@ Q!·0€ç(İ†»wï^½zX9¼{÷NUUUJJ
+ØdBîHÀ³r1Ú‘C urĞïß¿3	°ê¸wï°GñæÍ`æÏŸ?A3Ì,o/v$FÁP DÜÿşıvÁM2`>vc€äçÏŸM, ¼r`C£‰Q0´ @ Q-·@j`ö æ™¯_¿~ùòXÛ@n$CË˜µÄhGb	 @ÔÌ-ğ<Ì$À Xá S?$Œf‰Q0Ô@ Q?·Œ‚Q0\@ 1Á(D€ Í-£` h4·Œ‚Q@,  ÑÜ2
+F±  €FsË(Ä€ Í-£`   T›	9ÜÏ    IEND®B`‚Ô'()_=http://cocoadevcentral.com/images/global/miniglobe-orange.pngO~bplist00ÔjkX$versionX$objectsY$archiverT$top † ¯ #)*0123MNOPQRSTUVWXYZ[\]^_`adeU$nullİ	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€	€€€€€€€Ó$%&'(WNS.base[NS.relative€ €€_=http://cocoadevcentral.com/images/global/miniglobe-orange.pngÒ+,-.Z$classnameX$classesUNSURL¢-/XNSObject#Aºw›ÿ2Y ÈÓ456ALWNS.keysZNS.objectsª789:;<=>?@€	€
+€€€€€€€€ªBDEFGHIJK€€€€€€€€€€€VServer\Content-TypeWExpires]Last-ModifiedTEtagTDate]Accept-Ranges^Content-Length]Cache-ControlZConnection_>Apache/1.3.41 (Darwin) mod_ssl/2.8.31 OpenSSL/0.9.8g PHP/5.2.5Yimage/png_Tue, 27 Jan 2015 10:36:04 GMT_Wed, 19 Jan 2005 17:19:57 GMT_"1b4b8f-37e-41ee96bd"_Tue, 27 Jan 2015 09:36:04 GMTUbytesS894\max-age=3600UcloseÒ+,bc\NSDictionary¢b/~Ò+,fg_NSHTTPURLResponse£hi/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑlm_WebResourceResponse€    # - 2 7 Z ` { ~ ‚ … ˆ ‹  ’ ™ œ Ÿ ¢ ¥ ¨ ª ¬ ® ° ² ³ µ · ¹ » ½ ¿ Á È Ğ Ü Ş à â"'2;ADMVXZaitƒ…‡‰‹‘“ ¢¤¦¨ª¬®°²´»ÈĞŞãèö_i‰©Ááçëøş/3GUgj€             n              ‚O~‰PNG
+
+   IHDR         (–İã   gAMA  ÖØÔOX2   tEXtSoftware Adobe ImageReadyqÉe<  PLTEùìéşôñùõóåÖÏûûûòêæÛÆ¼úğì¾´©ƒkZäÔÌéßÛâwX­•}×jI–4 mWÓgEÀ>Ğ];ÉW3Û†mç„ı˜|ı™åâİÌU1»¯¤Ö~cÁ·«Ö„kšeDÅI!ÃGë†fÿ›‰½àŠàpQøêçüëæÿ¢£ÿ¥©öÕÌá§”ÂR0ÉQ+ĞmPöãİÄ’óŒlæcœH,õœŸè¡ŒëÒÓü–xúîëÿöóÿŸ˜Ô¼µ½6^>Î\8¹…xı·¹´€têÎÆğÏÅ´M#Íwµ2¸0ïµ¥ÚoR»W:Ë¡’ñŠj×iJÿ›ÅM,ú—€Ä£–·|s»|fØ‘vùğğá‘y—C"ÖiJüóñÿ’üòñ®/ÖgGØtUÇ[<İÙÔÂiLÆS1¹­¢·æ‹…¯/ñÖÏèÈ¾Ñ†jâuVÁBàÙÒı·¥ûíèúš‡Ë„kªhRä¨–«‚pæÛ×’CĞ_>ÈO*üÊÆÇ{bıª²óŞàÌ‰pÅ¨›ípÂE²G¾7ÈP-“q×z`˜/ ñ‰kõâÛîÊ¿æäßªkXÀÑ±¤ÿõò³kVÛ”~ÍZ7ÂD Á—Š”€rnWÿœ“Ä¦™Øwç¦“éƒc¯”}ÿÖÌÛnMÁ¶ªÿ¢˜ÇM%„Z.—B#©|jÙÄ¾¾9‘dCšcD‰P*µŠ}âwYÿÿÿµØè   IDATxÚbX½zµdJ'çé.  €V³pL-éÍtöY,ÀÁ² €VË.+ì°dgÏ˜Qe7o5@ 1$.t ÎÀÀ £ŸÜ¸" €xùİåT]dl=Úfƒ|l“Hgq«hs…‚Púr€ b([º@J8|¦_¼ ½^N@ 1,š41n®Z¶g¾Ydy€	@ 1éò­Rò5bdÔĞöJè †ÉŞ<íşs¬ú“ˆ¡´–¸rô´ù1Qyõ!Ü Ä°Ú&+ĞZSË1¬² tÉj€ b`åê©3­®1Osâb &f¶é+‚TRëØ˜™  ùAçEÎ    IEND®B`‚Ô+,-_7http://cocoadevcentral.com/images/global/mini-apple.pngOybplist00ÔjkX$versionX$objectsY$archiverT$top † ¯ #)*0123MNOPQRSTUVWXYZ[\]^_`adeU$nullİ	
+ !"R$6S$10R$2R$7R$3S$11R$8V$classR$4R$9R$0R$5R$1€	€€€€€€€Ó$%&'(WNS.base[NS.relative€ €€_7http://cocoadevcentral.com/images/global/mini-apple.pngÒ+,-.Z$classnameX$classesUNSURL¢-/XNSObject#Aºw›)x÷ ÈÓ456ALWNS.keysZNS.objectsª789:;<=>?@€	€
+€€€€€€€€ªBDEFGHIJK€€€€€€€€€€€VServer\Content-TypeWExpires]Last-ModifiedTEtagTDate]Accept-Ranges^Content-Length]Cache-ControlZConnection_>Apache/1.3.41 (Darwin) mod_ssl/2.8.31 OpenSSL/0.9.8g PHP/5.2.5Yimage/png_Tue, 27 Jan 2015 10:36:04 GMT_Wed, 19 Jan 2005 17:19:57 GMT_"1b4b8a-430-41ee96bd"_Tue, 27 Jan 2015 09:36:04 GMTUbytesT1072\max-age=3600UcloseÒ+,bc\NSDictionary¢b/0Ò+,fg_NSHTTPURLResponse£hi/_NSHTTPURLResponse]NSURLResponse_NSKeyedArchiverÑlm_WebResourceResponse€    # - 2 7 Z ` { ~ ‚ … ˆ ‹  ’ ™ œ Ÿ ¢ ¥ ¨ ª ¬ ® ° ² ³ µ · ¹ » ½ ¿ Á È Ğ Ü Ş à â!,5;>GPRT[cny{}ƒ…‡‰‹˜šœ ¢¤¦¨ª¬®µÂÊØİâğÿYcƒ£»Ûáæóùş*.BPbe{             n              }O0‰PNG
+
+   IHDR         (–İã   	pHYs     šœ   gAMA  Øëõª    cHRM  kb  t6  øm  ‹v  jc  áe  2  )®xÜ`d   PLTE’’’§§§ÔÔÔ‡‡‡ÉÉÉ³³³œœœ|||¾¾¾qqqéééŞŞŞôôôÿÿÿ[[[   !!!"""###$$$%%%&&&'''((()))***+++,,,---...///000111222333444555666777888999:::;;;<<<===>>>???@@@AAABBBCCCDDDEEEFFFGGGHHHIIIJJJKKKLLLMMMNNNOOOPPPQQQRRRSSSTTTUUUVVVWWWXXXYYYZZZ[[[\\\]]]^^^___```aaabbbcccdddeeefffggghhhiiijjjkkklllmmmnnnooopppqqqrrrssstttuuuvvvwwwxxxyyyzzz{{{|||}}}~~~€€€‚‚‚ƒƒƒ„„„………†††‡‡‡ˆˆˆ‰‰‰ŠŠŠ‹‹‹ŒŒŒ‘‘‘’’’“““”””•••–––———˜˜˜™™™ššš›››œœœŸŸŸ   ¡¡¡¢¢¢£££¤¤¤¥¥¥¦¦¦§§§¨¨¨©©©ªªª«««¬¬¬­­­®®®¯¯¯°°°±±±²²²³³³´´´µµµ¶¶¶···¸¸¸¹¹¹ººº»»»¼¼¼½½½¾¾¾¿¿¿ÀÀÀÁÁÁÂÂÂÃÃÃÄÄÄÅÅÅÆÆÆÇÇÇÈÈÈÉÉÉÊÊÊËËËÌÌÌÍÍÍÎÎÎÏÏÏĞĞĞÑÑÑÒÒÒÓÓÓÔÔÔÕÕÕÖÖÖ×××ØØØÙÙÙÚÚÚÛÛÛÜÜÜİİİŞŞŞßßßàààáááâââãããäääåååæææçççèèèéééêêêëëëìììíííîîîïïïğğğñññòòòóóóôôôõõõööö÷÷÷øøøùùùúúúûûûüüüııışşşÿÿÿuµÄ   šIDATxÚbà… F>.@„@ ’‹›—ƒ››È ^f>>>v>>N&^^€ b ê‚F^^€ bàóØŠˆÎå r‰Ë
+ä’bN Ñ ÄÀËç3sñ/œËÇÍ@@gÀ¥ÙxyÈåâDè #y8˜xy˜8@0 Ê	R¢Ï8é    IEND®B`‚    1 < K ] s ‘ ¨ ÙAıBBBBBB5BjFàWŞWçWğX4\º^d^n^w^¯c*q]qfqœv[d¨„1»À»É¼	À‹ÄÄÄPÈÍ             .              Í
