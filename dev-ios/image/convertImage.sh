@@ -4,7 +4,7 @@
 usage() {
     cat << EOF
     Usage:
-        convertImage.sh <src directory> <dest directory>
+        convertImage.sh <src directory> <dest directory>, install https://ifttl.com/convert-images-in-command-line-of-linux-and-macos/
 EOF
 }
 
